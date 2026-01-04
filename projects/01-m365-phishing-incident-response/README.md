@@ -127,14 +127,27 @@ This order ensured access was terminated without destroying investigative eviden
 - Perform periodic mailbox rule audits
 
 ## Evidence Index
-**Phase**                                                   **Evidence**
-Baseline	                                                  Screenshots 01–05
-Initial Access	                                            Screenshot 06
-Persistence	                                                Screenshot 07
-Impact	                                                    Screenshot 08
-Investigation	                                              Screenshots 09–10
-Containment	                                                Screenshots 11–13
-Hardening	                                                  Screenshot 14
+| Phase            | Evidence |
+|------------------|----------|
+| Baseline         | Screenshots 01–05 |
+| Initial Access   | Screenshot 06 |
+| Persistence      | Screenshot 07 |
+| Impact           | Screenshot 08 |
+| Investigation    | Screenshots 09–10 |
+| Containment      | Screenshots 11–13 |
+| Hardening        | Screenshot 14 |
+
+---
+
+## Skills Demonstrated
+
+- Microsoft Entra ID investigation
+- Exchange Online incident response
+- Identity-centric threat analysis
+- SOC workflow and IR sequencing
+- Evidence handling and documentation
+- Realistic attacker modeling
+
 
 ## Skills Demonstrated
 - Microsoft Entra ID investigation
