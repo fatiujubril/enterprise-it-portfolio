@@ -52,6 +52,7 @@ Before simulating the attack, the environment was validated to ensure a clean ba
 - Email forwarding disabled
 - No abnormal sign-in activity observed
 - Security logs reviewed under administrative context
+  
 This baseline ensured that any subsequent activity could be confidently attributed to the simulated compromise.
 
 ## Attack Simulation Overview
@@ -71,6 +72,7 @@ The attacker authenticated to Outlook on the web using stolen credentials from a
 - New IP address
 - Browser-based sign-in
 - Successful authentication using single-factor authentication
+  
 This activity was consistent with credential compromise rather than user error.
 
 ## Phase 2 – Persistence via Mailbox Rule
@@ -81,6 +83,7 @@ After gaining access, the attacker created a malicious inbox rule designed to su
   - **Action:**
     - Move message to Archive
     - Mark message as read
+      
 This technique delays detection by hiding warning emails while maintaining mailbox functionality.
 
 ## Phase 3 – Impact (Outbound Phishing)
@@ -90,6 +93,7 @@ The compromised mailbox was used to send a small number of phishing-style emails
 - Emails successfully delivered
 - Message trace confirmed sender, recipient, timestamp, and delivery status
 - Trust abuse demonstrated without large-scale spamming
+  
 This escalated the incident from a simple account anomaly to an active security incident.
 
 ## Phase 4 – Investigation & Correlation
@@ -102,6 +106,7 @@ During investigation, the following were confirmed:
   - OAuth abuse
   - Email forwarding
   - Additional compromised accounts
+    
 A clear and coherent incident timeline was reconstructed.
 
 ## Phase 5 – Containment & Remediation
@@ -111,6 +116,7 @@ Containment actions followed correct incident response sequencing:
 - Removal of malicious inbox rule
 - MFA enforcement confirmed post-incident
 - User notification (conceptual)
+  
 This order ensured access was terminated without destroying investigative evidence.
 
 ## Analyst Decision Points
@@ -121,6 +127,7 @@ Key investigative decisions during this incident included:
 - Using message trace to confirm business impact before remediation
 - Revoking sessions prior to password reset to prevent token reuse
 - Removing malicious mailbox rules before re-enabling user access
+  
 These decisions mirror real SOC workflows where timing and sequencing directly affect containment success.
 
 ## MITRE ATT&CK Mapping
@@ -129,13 +136,11 @@ This incident aligns with the following MITRE ATT&CK techniques:
 - **T1566.002 – Phishing: Spearphishing Link**  
   Used to capture valid Microsoft 365 credentials.
 - **T1078 – Valid Accounts**  
-  Attacker authenticated using legitimate user credentials without malware.
-- **T1098.003 – Account Manipulation: Additional Cloud Credentials**  
-  Persistence achieved via mailbox rule manipulation rather than password changes.
-- **T1114.003 – Email Collection: Email Forwarding Rule**  
-  Mailbox rules were used to manipulate message visibility and suppress alerts.
+  Attacker authenticated using legitimate credentials without malware.
+- **T1114.003 – Email Collection: Inbox Rule Manipulation**  
+  Mailbox rules were used to suppress security notifications and maintain persistence.
 - **T1534 – Internal Spearphishing**  
-  Compromised mailbox leveraged to send phishing emails to internal and external contacts.
+  Compromised mailbox used to send phishing emails to other users.
 
 This attack path reflects common identity-based intrusions where attackers exploit cloud-native features instead of deploying malicious payloads.
 
@@ -179,16 +184,6 @@ This attack path reflects common identity-based intrusions where attackers explo
 All screenshots and supporting artifacts are stored in the `/evidence` directory and referenced by phase and sequence number.
 
 Evidence is intentionally separated from analysis to preserve readability while maintaining traceability between investigative steps and supporting data.
-
-## Skills Demonstrated
-
-- Microsoft Entra ID investigation
-- Exchange Online incident response
-- Identity-centric threat analysis
-- SOC workflow and IR sequencing
-- Evidence handling and documentation
-- Realistic attacker modeling
-
 
 ## Skills Demonstrated
 - Microsoft Entra ID investigation
