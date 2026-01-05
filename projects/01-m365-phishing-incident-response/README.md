@@ -187,17 +187,16 @@ This attack path reflects common identity-based intrusions where attackers explo
 - Perform periodic mailbox rule audits
 
 ## Evidence Index
-| Phase            | Evidence |
-|------------------|----------|
-| Baseline         | Screenshots 01–05 |
-| Initial Access   | Screenshot 06 |
-| Persistence      | Screenshot 07 |
-| Impact           | Screenshot 08 |
-| Investigation    | Screenshots 09–10 |
-| Containment      | Screenshots 11–13 |
-| Hardening        | Screenshot 14 |
+| Phase           | Evidence |
+|-----------------|----------|
+| Baseline        | [01](evidence/01-ad-user-group-membership.png), [02](evidence/02-endpoint-identity-network.png), [03](evidence/03-endpoint-privilege-groups.png), [04](evidence/04-mailbox-rules-baseline.png), [05](evidence/05-mailbox-forwarding-baseline.png) |
+| Initial Access  | [06](evidence/06-entra-suspicious-signin.png) |
+| Persistence     | [07](evidence/07-mailbox-rule-created.png) |
+| Impact          | [08](evidence/08-outbound-phishing-message-trace.png) |
+| Investigation   | [09](evidence/09-signin-log-analysis.png), [10](evidence/10-mailbox-rule-investigation.png) |
+| Containment     | [11](evidence/11-session-revocation.png), [12](evidence/12-password-reset.png), [13](evidence/13-mailbox-rule-removed.png) |
+| Hardening       | [14](evidence/14-mfa-enabled.png) |
 
----
 ## Evidence Handling
 All screenshots and supporting artifacts are stored in the `/evidence` directory and referenced by phase and sequence number.
 
