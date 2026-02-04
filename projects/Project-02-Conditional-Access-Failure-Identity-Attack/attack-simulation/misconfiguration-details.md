@@ -8,3 +8,6 @@
 
 ### CA Policy – Grant Controls
 ![CA Grant Require MFA](../evidence/screenshots/attack/P2-AT-CA-Grant-Require-MFA-03.png)
+
+### Conditional Access Misconfiguration
+![CA User Excluded](../evidence/screenshots/attack/P2-AT-CA-User-Excluded-04.png)
