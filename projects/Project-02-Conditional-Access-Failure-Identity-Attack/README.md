@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project simulates a real-world identity security incident caused by a **Conditional Access misconfiguration** in Microsoft Entra ID. It demonstrates how a legitimate administrative decision—made under business pressure—can unintentionally introduce a high-risk authentication bypass for a high-value identity.
+This project simulates a real-world identity security incident caused by a **Conditional Access misconfiguration** in Microsoft Entra ID. It demonstrates how a legitimate administrative decision, made under business pressure, can unintentionally introduce a high-risk authentication bypass for a high-value identity.
 
 The project focuses on **internal Conditional Access exception abuse**, not phishing, malware, or external attackers, reflecting a common but often under-detected identity risk in Microsoft 365 environments.
 
