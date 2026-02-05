@@ -39,19 +39,25 @@ This evidence confirms that a functional MFA method was successfully re-establis
 
 ## Post-Recovery Validation
 
-After MFA re-enrollment:
+After MFA re-enrollment, validation was performed to confirm that Conditional Access enforcement was re-applied and that the CEO account could no longer authenticate using single-factor authentication.
+
+### Evidence 6.2 – Conditional Access Applied and MFA Enforced (Post-Recovery)
+
+This evidence shows successful CEO sign-ins where:
+- Conditional Access evaluation is applied successfully
+- Authentication requirement is multifactor authentication
+
+![Evidence 6.2 – Post-Recovery MFA Enforced](../evidence/screenshots/recovery/P2-RC-Post-Remediation-MFA-Enforced-02.png)
+
+---
+
+## Recovery Outcome
 
 - Conditional Access evaluated successfully for the affected account
 - MFA challenges were enforced during interactive sign-ins
 - No further single-factor authentication events were observed
 - No Conditional Access exclusions were required to maintain access
 
-This confirmed that recovery actions resolved the original access issue without reintroducing security risk.
-
----
-
-## Recovery Outcome
-
 The environment was returned to a secure and stable state with full Conditional Access enforcement and functional MFA for all users, including high-value executive identities.
 
-The incident highlighted the importance of addressing **root usability issues** rather than relying on policy exceptions that weaken security controls.
+This incident highlights the importance of resolving root usability issues rather than relying on policy exceptions that weaken security controls.
