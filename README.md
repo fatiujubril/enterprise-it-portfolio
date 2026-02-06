@@ -65,7 +65,7 @@ This project demonstrates how phishing attacks are investigated and remediated i
 - Post-incident hardening actions
 
 📂 **Project Location:**  
-[`projects/project-01-m365-phishing-incident-response`](./projects/project-01-m365-phishing-incident-response)
+[`projects/project-01-m365-phishing-incident-response`](./projects/project-01-m365-phishing-incident-response/README.md)
 
 🔎 **Key Focus Areas:**
 - Microsoft 365 security operations
@@ -91,7 +91,7 @@ This project focuses on **internal policy exception abuse** and identity governa
 - Governance improvements and lessons learned
 
 📂 **Project Location:**  
-[`projects/Project-02-Conditional-Access-Failure-Identity-Attack`](./projects/Project-02-Conditional-Access-Failure-Identity-Attack)
+[`projects/Project-02-Conditional-Access-Failure-Identity-Attack`](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
 
 🔎 **Key Focus Areas:**
 - Microsoft Entra ID & Conditional Access
