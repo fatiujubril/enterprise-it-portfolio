@@ -37,7 +37,7 @@ Key outcomes:
 - Documented governance improvements to prevent recurrence
 
 ➡️ **View project:**  
-[Project 02 – Conditional Access Failure & Identity Attack Simulation](./projects/Project-02-Conditional-Access-Failure-Identity-Attack)
+[Project 02 – Conditional Access Failure & Identity Attack Simulation](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
 
 ---
 
@@ -54,7 +54,7 @@ Key outcomes:
 - Produced clear, evidence-backed incident documentation
 
 ➡️ **View project:**  
-[Project 01 – Microsoft 365 Phishing Incident Response](./projects/project-01-m365-phishing-incident-response)
+[Project 01 – Microsoft 365 Phishing Incident Response](./projects/cybersecurity/project-01-m365-phishing-incident-response/README.md)
 
 ---
 
