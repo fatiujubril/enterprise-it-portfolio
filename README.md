@@ -65,7 +65,7 @@ This project demonstrates how phishing attacks are investigated and remediated i
 - Post-incident hardening actions
 
 📂 **Project Location:**  
-[`projects/project-01-m365-phishing-incident-response`](./projects/project-01-m365-phishing-incident-response/README.md)
+[`projects/project-01-m365-phishing-incident-response`](./projects/cybersecurity/project-01-m365-phishing-incident-response/README.md)
 
 🔎 **Key Focus Areas:**
 - Microsoft 365 security operations
