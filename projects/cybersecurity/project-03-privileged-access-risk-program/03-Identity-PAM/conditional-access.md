@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This document defines the **baseline Conditional Access (CA) controls** applied to administrative accounts within the tenant.
+This document defines the baseline **Conditional Access (CA)** controls applied to administrative accounts within the tenant.
 
 The objective is to:
 - Enforce strong authentication for all administrative access
-- Block legacy authentication paths commonly used in account compromise
+- Block legacy authentication paths commonly abused in account compromise
 - Preserve tenant recoverability through explicitly excluded break-glass accounts
 
 These controls align with **Zero Trust**, **least privilege**, and Microsoft security best practices.
@@ -15,13 +15,13 @@ These controls align with **Zero Trust**, **least privilege**, and Microsoft sec
 
 ## Scope
 
-**Targeted users:**
-- Security administrators scoped via the `SEC-CA-Admins` security group
+**Targeted users**
+- Administrative accounts scoped via the `SEC-CA-Admins` security group
 
-**Explicit exclusions:**
+**Explicit exclusions**
 - Emergency access accounts contained in `SEC-BreakGlass`
 
-**Targeted applications:**
+**Targeted applications**
 - All cloud applications
 - Microsoft 365 Admin Services
 
@@ -31,99 +31,95 @@ These controls align with **Zero Trust**, **least privilege**, and Microsoft sec
 
 ---
 
-### CA-01 – Require MFA for Admins
+## CA-01 – Require MFA for Admins
 
-**Policy name:**  
+**Policy name**  
 `CA-01-Require-MFA-Admins`
 
-**Purpose:**  
-Ensures that all administrative sign-ins require multi-factor authentication, reducing the risk of credential compromise.
+**Purpose**  
+Ensures all administrative sign-ins require multi-factor authentication, reducing the risk of credential theft and unauthorized access.
 
-**Assignments:**
-- **Include:** `SEC-CA-Admins`
-- **Exclude:** `SEC-BreakGlass`
+**Assignments**
+- Include: `SEC-CA-Admins`
+- Exclude: `SEC-BreakGlass`
 
-**Target resources:**
+**Target resources**
 - All cloud apps
 
-**Access controls:**
+**Access controls**
 - Grant access
 - Require multi-factor authentication
 
-**Enforcement state:**
+**Enforcement state**
 - Enabled (On)
 
-**Evidence:**
+**Evidence**
 
-![CA-01 enabled](./Evidence/Phase-01-Identity/CA-Policies/20260207_CA01_RequireMFA_Admins_Enabled.png)
+![CA-01 Require MFA Enabled](../Evidence/Phase-01-Identity/CA-Policies/20260207_CA01_RequireMFA_Admins_Enabled.png)
 
 ---
 
-### CA-02 – Block Legacy Authentication for Admins
+## CA-02 – Block Legacy Authentication for Admins
 
-**Policy name:**  
+**Policy name**  
 `CA-02-Block-LegacyAuth-Admins`
 
-**Purpose:**  
-Blocks legacy authentication protocols (e.g., basic authentication) that bypass modern security controls and are frequently abused in attacks.
+**Purpose**  
+Blocks legacy authentication protocols that bypass modern security controls and MFA enforcement.
 
-**Assignments:**
-- **Include:** `SEC-CA-Admins`
-- **Exclude:** `SEC-BreakGlass`
+**Assignments**
+- Include: `SEC-CA-Admins`
+- Exclude: `SEC-BreakGlass`
 
-**Target resources:**
+**Target resources**
 - All cloud apps
 
-**Conditions:**
+**Conditions**
 - Client apps:
   - Exchange ActiveSync clients
   - Other legacy authentication clients
 
-**Access controls:**
+**Access controls**
 - Block access
 
-**Enforcement state:**
+**Enforcement state**
 - Enabled (On)
 
-**Evidence:**
+**Evidence**
 
-![CA-02 enabled](./Evidence/Phase-01-Identity/CA-Policies/20260207_CA02_BlockLegacyAuth_Admins_Enabled.png)
+![CA-02 Block Legacy Authentication Enabled](../Evidence/Phase-01-Identity/CA-Policies/20260207_CA02_BlockLegacyAuth_Admins_Enabled.png)
 
 ---
 
 ## Policy Validation
 
-Prior to enforcement, both policies were evaluated using the **Conditional Access What If tool** to confirm:
+Prior to enforcement, both policies were evaluated using the **Conditional Access What If tool** to confirm correct scope and prevent unintended lockout.
 
-- Correct policy targeting
-- No unintended impact to break-glass accounts
-- Proper evaluation against administrative cloud services
-
-**Validation method:**
+**Validation details**
 - User: `sec.admin`
 - Application: Microsoft 365 Admin Services
-- Result: Both policies applied as expected in report-only mode
+- Result: Both policies applied successfully in report-only mode before enforcement
 
-**Evidence:**
+**Evidence**
 
-![Conditional Access What If results](./Evidence/Phase-01-Identity/CA-Policies/20260207_CA_WhatIf_AdminPolicies.png)
+![Conditional Access What If Results](../Evidence/Phase-01-Identity/CA-Policies/20260207_CA_WhatIf_AdminPolicies.png)
 
 ---
 
 ## Security Rationale
 
-- Administrative accounts are high-value targets and require stronger controls than standard users
-- Legacy authentication bypasses MFA and modern security protections
-- Break-glass accounts are excluded to ensure tenant recovery during Conditional Access or identity service failures
+- Administrative accounts represent the highest-risk identities
+- Legacy authentication bypasses MFA and modern protections
+- Break-glass exclusions ensure tenant recovery if Conditional Access or identity services fail
 
 ---
 
 ## Summary
 
-These Conditional Access policies establish a strong administrative security baseline by:
+These Conditional Access policies establish a hardened administrative access baseline by:
 
 - Enforcing MFA for all admin access
 - Eliminating legacy authentication attack paths
 - Preserving emergency access through controlled exclusions
 
-This layer works in conjunction with **Privileged Identity Management (PIM)** to ensure that administrative access is **just-in-time, strongly authenticated, and auditable**.
+This layer operates alongside **Privileged Identity Management (PIM)** to ensure administrative access is **just-in-time, strongly authenticated, and fully auditable**.
