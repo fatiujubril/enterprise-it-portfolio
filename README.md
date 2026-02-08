@@ -1,219 +1,92 @@
 # Enterprise IT & Cybersecurity Portfolio
 
-Welcome to my **Enterprise IT & Cybersecurity Portfolio**.
+Hands-on portfolio demonstrating **Cybersecurity**, **Identity & Access Management (IAM)**, and **Enterprise IT Operations** in Microsoft-centric environments.
 
-This repository showcases hands-on projects across **Cybersecurity**, **Identity & Access Management (IAM)**, and **Enterprise Systems Administration**, built to reflect **real-world enterprise environments**—not toy labs.
-
-Each project focuses on how security and IT systems actually fail, how those failures are detected, and how they are remediated and governed long-term.
+Built around **real-world failure scenarios**: how security and IT controls break, how issues are detected, and how they are remediated and governed long-term.
 
 > **Includes an in-progress Privileged Access & Vulnerability Risk Program (Cloud + SIEM + IaC)** focused on reducing administrative risk and improving detection visibility.
 
 ---
 
-## Who This Portfolio Is For
+## What This Portfolio Demonstrates
 
-This portfolio is designed for reviewers hiring into roles such as:
-
-- **Cybersecurity Engineer / SOC / SecOps**
-- **Security Engineer (Microsoft cloud–centric)**
-- **Identity & Access Management (IAM / Identity Analyst)**
-- **Systems, Network, or Cloud Administrator**
-- **Hybrid IT / Security roles**
-
-If you are evaluating hands-on capability, investigative thinking, or operational maturity, this repository is meant to make that visible quickly.
-
----
-
-## About Me
-
-I am an IT and Cybersecurity professional with hands-on experience supporting **Microsoft-centric enterprise environments**, including:
-
-- Microsoft 365
-- Microsoft Entra ID (Azure AD)
-- Conditional Access & MFA enforcement
-- Identity security and governance
-- Incident response and operational security
-
-My work sits at the intersection of **security engineering**, **identity**, and **enterprise IT operations**, with a strong emphasis on documentation, repeatability, and governance.
-
----
-
-## How This Portfolio Is Structured
-
-Projects are organized into two primary domains:
-
-### 🔐 Cybersecurity Projects
-Identity security, detection, response, and governance-focused scenarios.
-
-### 🛠️ Systems & IT Engineering Projects
-Enterprise IT operations, administration, automation, and infrastructure  
-(**currently in progress**).
-
-Each project contains:
-- A dedicated README
-- Clear objectives and scope
-- Investigation and remediation steps
-- Evidence (screenshots, logs, configuration states)
-- Lessons learned and governance improvements
+- Practical **security engineering & SecOps** thinking  
+- **Identity-first security** (Entra ID, Conditional Access, MFA, governance)  
+- **Incident response & investigation** using logs and telemetry  
+- **Enterprise IT operations** with a security-first mindset  
+- Clear, repeatable **documentation and decision-making**
 
 ---
 
 ## 🔐 Cybersecurity Projects
 
-These projects simulate **realistic enterprise threat scenarios**, including both:
-- External attack techniques (e.g., phishing)
-- Internal control failures (e.g., identity misconfiguration)
+### **Project 01 – Microsoft 365 Phishing Incident Response**
+Simulated phishing incident covering detection, investigation, containment, and post-incident hardening in a Microsoft 365 environment.
 
-The emphasis is not just on fixing issues—but on **how they were detected**, **why they occurred**, and **how to prevent recurrence**.
+**Demonstrates:**  
+Incident response · Email security · Account compromise handling · Operational hygiene
 
----
-
-### 🔹 Project 01 – Microsoft 365 Phishing Incident Response
-
-A simulated phishing incident involving a Microsoft 365 user account, focused on **email-based threat detection, investigation, and response**.
-
-This project mirrors how phishing incidents are handled in production Microsoft environments using native tooling and structured response workflows.
-
-**Key stages covered:**
-- Phishing detection and triage
-- Mail flow and message trace analysis
-- Compromised account investigation
-- Mailbox rule review and cleanup
-- Incident containment and recovery
-- Post-incident security hardening
-
-📂 **Project Location:**  
-[`projects/project-01-m365-phishing-incident-response`](./projects/cybersecurity/project-01-m365-phishing-incident-response/README.md)
-
-🔎 **Key Focus Areas:**
-- Microsoft 365 security operations
-- Email threat investigation
-- Incident response lifecycle
-- Account compromise remediation
-- Operational security hygiene
+📂 [`View project`](./projects/cybersecurity/project-01-m365-phishing-incident-response/README.md)
 
 ---
 
-### 🔹 Project 02 – Conditional Access Failure & Identity Attack Simulation
+### **Project 02 – Conditional Access Failure & Identity Attack Simulation**
+Identity attack scenario showing how a **Conditional Access misconfiguration** can bypass MFA for a high-value account—without malware or phishing.
 
-An identity security simulation demonstrating how a **Conditional Access misconfiguration** can silently bypass MFA enforcement for a high-value executive account—without phishing, malware, or external attackers.
+**Demonstrates:**  
+Entra ID · Conditional Access · MFA validation · Identity governance · Telemetry-driven investigation
 
-This project focuses on **identity governance failure**, showing how legitimate administrative actions can unintentionally weaken security controls.
-
-**Incident lifecycle covered:**
-- Secure identity baseline establishment
-- Conditional Access misconfiguration introduction
-- Detection via Entra ID sign-in telemetry
-- Investigation and impact analysis
-- Containment, remediation, and recovery
-- Governance improvements and lessons learned
-
-📂 **Project Location:**  
-[`projects/Project-02-Conditional-Access-Failure-Identity-Attack`](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
-
-🔎 **Key Focus Areas:**
-- Microsoft Entra ID & Conditional Access
-- MFA enforcement validation
-- Identity misconfiguration detection
-- Telemetry-driven investigation
-- Security governance and exception handling
+📂 [`View project`](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
 
 ---
 
-### 🔹 Project 03 – Privileged Access + Vulnerability Risk Program (Cloud + SIEM + IaC)
+### **Project 03 – Privileged Access + Vulnerability Risk Program** *(In Progress)*
+Security engineering program focused on **privileged access risk**, **vulnerability exposure**, and **SIEM visibility**, designed with an **IaC and governance-first mindset**.
 
-An in-progress security engineering project focused on **privileged access control**, **vulnerability risk reduction**, and **telemetry-driven monitoring** across cloud environments.
+**Focus areas:**  
+Privileged identity · Risk prioritization · SIEM detections · Secure-by-default baselines
 
-This project is designed to mirror how mature organizations manage **administrative risk at scale**, combining **identity governance**, **vulnerability management**, and **SIEM visibility**—with an infrastructure-as-code mindset for repeatability and auditability.
-
-**Primary focus areas:**
-- Privileged identity and administrative access risk
-- Cloud identity governance and least-privilege enforcement
-- Vulnerability exposure tracking and prioritization
-- SIEM-based visibility and alerting for high-risk activity
-- Infrastructure-as-Code (IaC) patterns for secure-by-default controls
-
-**Planned components include:**
-- Privileged role identification and risk classification
-- JIT/JEA-style access patterns and administrative separation
-- Detection of high-risk privileged activity via SIEM analytics
-- Vulnerability signal ingestion and correlation with identity context
-- Baseline hardening expressed through policy and IaC concepts
-- Governance metrics and continuous improvement loops
-
-📌 **Status:** Work in progress  
-📂 **Location:** `projects/cybersecurity/` (to be added)
+📌 Status: In progress
 
 ---
 
-## 🛠️ Systems & IT Engineering Projects (In Progress)
+## 🛠️ Systems & IT Engineering *(In Progress)*
 
-This section will include hands-on enterprise IT projects such as:
-
-- Microsoft 365 administration
-- Identity lifecycle management (Joiner / Mover / Leaver)
-- Windows Server & Active Directory operations
-- Endpoint and device management
-- Automation with PowerShell
-- Backup, recovery, and operational governance
-
-📌 **Status:** Actively being developed  
-Projects will be added incrementally as they are completed.
+Upcoming projects covering:
+- Microsoft 365 & Entra ID administration  
+- Identity lifecycle (Joiner / Mover / Leaver)  
+- Windows Server, AD, and endpoint management  
+- Automation with PowerShell  
+- Backup, recovery, and operational governance  
 
 ---
 
 ## Resume & Applications
 
-I maintain **multiple tailored PDF resumes** aligned to different role types (e.g., Cybersecurity, IAM, Systems Administration).
+I maintain **role-specific, tailored PDF resumes** (Cybersecurity, IAM, Systems).  
+A single static resume is intentionally not linked.
 
-Because resumes are customized per role and organization, a single static resume is not linked here.
-
-If you are reviewing this portfolio as part of an application or interview process, I’m happy to:
-- Share the resume version aligned to the role
-- Walk through any project live
-- Explain design decisions, trade-offs, and real-world parallels
+Happy to share the appropriate version during an application or interview.
 
 ---
 
-## How to Review This Portfolio
+## How to Review (Optional)
 
-If you have **1–2 minutes**:
-- Open a project README
-- Skim the scenario, findings, and remediation
-
-If you have **5–10 minutes**:
-- Review the investigation steps
-- Look through evidence screenshots/logs
-- Read the governance and lessons learned sections
-
-Each project is designed to be explainable end-to-end.
+- Skim a project README for **scenario → findings → remediation**
+- Review screenshots/logs if you want deeper technical detail  
+Each project is understandable end-to-end without prior context.
 
 ---
 
-## Ongoing Development
+## Contact / Next Steps
 
-This portfolio is actively maintained as new projects are completed and existing ones are refined.
-
-Future work includes:
-- Expanded detection engineering
-- Identity governance automation
-- Systems hardening and operational baselines
-- Deeper SOC-style workflows
-
----
-
-## Contact & Next Steps
-
-If you’re hiring for **Cybersecurity**, **IAM**, or **Enterprise IT** roles in Canada (GTA / Hybrid / Remote), I’m open to conversations.
+This portfolio is actively maintained and expanded.
 
 I’m happy to:
 - Walk through any project
-- Answer deep technical questions
-- Discuss how these scenarios translate to real production environments
+- Explain trade-offs and design decisions
+- Discuss how these scenarios map to production environments
 
 ---
 
-### Disclaimer
-
-All projects use **lab environments and sanitized data**.  
-No client, employer, or confidential information is included.
+*All projects use lab environments and sanitized data. No client or confidential information is included.*
