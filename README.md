@@ -6,6 +6,8 @@ This repository showcases hands-on projects across **Cybersecurity**, **Identity
 
 Each project focuses on how security and IT systems actually fail, how those failures are detected, and how they are remediated and governed long-term.
 
+> **Includes an in-progress Privileged Access & Vulnerability Risk Program (Cloud + SIEM + IaC)** focused on reducing administrative risk and improving detection visibility.
+
 ---
 
 ## Who This Portfolio Is For
@@ -118,19 +120,29 @@ This project focuses on **identity governance failure**, showing how legitimate 
 
 ---
 
-### 🔹 Project 03 – Detection Engineering & SOC Enhancements (In Progress)
+### 🔹 Project 03 – Privileged Access + Vulnerability Risk Program (Cloud + SIEM + IaC)
 
-An active, evolving project focused on **detection engineering, alert quality, and SOC efficiency**.
+An in-progress security engineering project focused on **privileged access control**, **vulnerability risk reduction**, and **telemetry-driven monitoring** across cloud environments.
 
-This project will expand into:
-- KQL-based detection logic
-- Noise reduction and false-positive tuning
-- Identity-driven detections
-- Investigation and response runbooks
-- SOAR-style enrichment and automation concepts
+This project is designed to mirror how mature organizations manage **administrative risk at scale**, combining **identity governance**, **vulnerability management**, and **SIEM visibility**—with an infrastructure-as-code mindset for repeatability and auditability.
+
+**Primary focus areas:**
+- Privileged identity and administrative access risk
+- Cloud identity governance and least-privilege enforcement
+- Vulnerability exposure tracking and prioritization
+- SIEM-based visibility and alerting for high-risk activity
+- Infrastructure-as-Code (IaC) patterns for secure-by-default controls
+
+**Planned components include:**
+- Privileged role identification and risk classification
+- JIT/JEA-style access patterns and administrative separation
+- Detection of high-risk privileged activity via SIEM analytics
+- Vulnerability signal ingestion and correlation with identity context
+- Baseline hardening expressed through policy and IaC concepts
+- Governance metrics and continuous improvement loops
 
 📌 **Status:** Work in progress  
-📂 **Location:** To be added under `projects/cybersecurity/`
+📂 **Location:** `projects/cybersecurity/` (to be added)
 
 ---
 
