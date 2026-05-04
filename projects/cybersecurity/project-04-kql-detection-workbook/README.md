@@ -44,6 +44,7 @@ Each rule is documented with query logic, threshold rationale, test results, and
 ## Project Structure
 
 \\\
+
 project-04-kql-detection-workbook/
 ├── 00-Executive-Summary/
 ├── 01-Lab-Architecture/
