@@ -43,7 +43,7 @@ Each rule is documented with query logic, threshold rationale, test results, and
 
 ## Project Structure
 
-\\\
+```
 
 project-04-kql-detection-workbook/
 ├── 00-Executive-Summary/
@@ -68,7 +68,7 @@ project-04-kql-detection-workbook/
     ├── 03-detection-rules/
     ├── 04-tuning/
     └── 05-workbook/
-\\\
+```
 
 ---
 
