@@ -21,7 +21,7 @@ This lab uses Microsoft Sentinel deployed on an Azure Log Analytics workspace to
 
 | Source | Table in Sentinel | License Required | Status |
 |---|---|---|---|
-| Azure Activity Logs | AzureActivity | None — free | 🟡 Connecting |
+| Azure Activity Logs | AzureActivity | None — free | 🟢 Connected |
 | Entra ID Audit Logs | AuditLogs | Entra ID Free | 🔴 Pending |
 | Entra ID Sign-in Logs | SigninLogs | Entra ID P1 | 🔴 Pending |
 
