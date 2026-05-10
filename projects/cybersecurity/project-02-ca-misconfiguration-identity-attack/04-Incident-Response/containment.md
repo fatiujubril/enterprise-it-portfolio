@@ -26,7 +26,7 @@ Post-removal sign-in attempts confirmed:
 
 | # | Screenshot | Description |
 |---|---|---|
-| IR-01 | P2-IR-CA-Exclusion-Removed-01.png | CA exclusion removed - CEO no longer in exclusion list |
+| IR-01 | 12-P2-IR-CA-Exclusion-Removed.png | CA exclusion removed - CEO no longer in exclusion list |
 
 ## Containment Outcome
 

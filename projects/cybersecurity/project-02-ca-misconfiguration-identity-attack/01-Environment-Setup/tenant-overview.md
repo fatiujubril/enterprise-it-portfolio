@@ -49,6 +49,6 @@ At baseline the tenant was configured with modern authentication controls:
 
 | # | Screenshot | Description |
 |---|---|---|
-| 1.1 | P2-BL-ENTRA-Tenant-Overview-01.png | Entra ID tenant details and licensing at baseline |
-| 1.2 | P2-BL-Auth-Methods-Configuration-03.png | Authentication methods - Authenticator enabled |
-| 1.3 | P2-BL-SignIn-Logs-Clean-04.png | Baseline sign-in logs - MFA enforced, no anomalies |
+| 1.1 | 01-P2-BL-ENTRA-Tenant-Overview.png | Entra ID tenant details and licensing at baseline |
+| 1.2 | 03-P2-BL-Auth-Methods-Configuration.png | Authentication methods - Authenticator enabled |
+| 1.3 | 04-P2-BL-SignIn-Logs-Clean.png | Baseline sign-in logs - MFA enforced, no anomalies |

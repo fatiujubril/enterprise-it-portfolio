@@ -40,7 +40,7 @@ exceptions under business pressure. The failure is in the governance around it:
 
 | # | Screenshot | Description |
 |---|---|---|
-| AT-01 | P2-AT-CA-Users-Group-Membership-01.png | CA policy user scope - group membership |
-| AT-02 | P2-AT-CA-Policy-Targets-Group-02.png | CA policy targeting configuration |
-| AT-03 | P2-AT-CA-Grant-Require-MFA-03.png | CA grant control - MFA required |
-| AT-04 | P2-AT-CA-User-Excluded-04.png | CEO account explicitly excluded from policy |
+| AT-01 | 05-P2-AT-CA-Users-Group-Membership.png | CA policy user scope - group membership |
+| AT-02 | 06-P2-AT-CA-Policy-Targets-Group.png | CA policy targeting configuration |
+| AT-03 | 07-P2-AT-CA-Grant-Require-MFA.png | CA grant control - MFA required |
+| AT-04 | 08-P2-AT-CA-User-Excluded.png | CEO account explicitly excluded from policy |

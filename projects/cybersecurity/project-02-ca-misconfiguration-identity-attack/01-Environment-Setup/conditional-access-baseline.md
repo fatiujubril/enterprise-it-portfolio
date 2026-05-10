@@ -38,4 +38,4 @@ Before any misconfiguration:
 
 | # | Screenshot | Description |
 |---|---|---|
-| 2.1 | P2-BL-CA-Policy-List-02.png | Active CA policies at baseline - MFA enforcement confirmed |
+| 2.1 | 02-P2-BL-CA-Policy-List.png | Active CA policies at baseline - MFA enforcement confirmed |

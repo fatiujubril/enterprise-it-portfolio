@@ -44,5 +44,5 @@ No evidence of exploitation during the exposure window.
 
 | # | Screenshot | Description |
 |---|---|---|
-| DE-01 | P2-DE-SignIn-Logs-MFA-Bypass-01.png | Sign-in logs showing CA Not Applied, single-factor auth |
-| DE-02 | P2-DE-CA-Policy-Explicit-Exclusion-03.png | CA policy exclusion - CEO account confirmed |
+| DE-01 | 09-P2-DE-SignIn-Logs-MFA-Bypass.png | Sign-in logs showing CA Not Applied, single-factor auth |
+| DE-02 | 11-P2-DE-CA-Policy-Explicit-Exclusion.png | CA policy exclusion - CEO account confirmed |

@@ -28,8 +28,8 @@ Sign-in logs reviewed post-recovery to confirm:
 
 | # | Screenshot | Description |
 |---|---|---|
-| RC-01 | P2-RC-CEO-MFA-Authenticator-Enabled-01.png | MFA re-enrolled on new device |
-| RC-02 | P2-RC-Post-Remediation-MFA-Enforced-02.png | Post-recovery sign-in - CA Success, MFA enforced |
+| RC-01 | 14-P2-RC-CEO-MFA-Authenticator-Enabled.png | MFA re-enrolled on new device |
+| RC-02 | 15-P2-RC-Post-Remediation-MFA-Enforced.png | Post-recovery sign-in - CA Success, MFA enforced |
 
 ## Recovery Validation Checklist
 
