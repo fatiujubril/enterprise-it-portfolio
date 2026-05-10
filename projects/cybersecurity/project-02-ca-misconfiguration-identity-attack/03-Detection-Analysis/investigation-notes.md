@@ -26,7 +26,7 @@ Review of CA configuration revealed the CEO account was explicitly excluded
 from the policy enforcing MFA. CA evaluation was bypassed entirely for this
 user, allowing single-factor authentication to succeed.
 
-This is a **policy exception abuse** condition, not a platform failure.
+This is a policy exception abuse condition, not a platform failure.
 
 ## Investigation Scope Assessment
 
@@ -37,12 +37,9 @@ This is a **policy exception abuse** condition, not a platform failure.
 | Data access anomalies | None identified |
 | Lateral movement | No evidence |
 
-The exposure was limited to authentication downgrade on a single account.
-No evidence of exploitation during the exposure window.
-
 ## Detection Evidence
 
 | # | Screenshot | Description |
 |---|---|---|
-| DE-01 | 09-P2-DE-SignIn-Logs-MFA-Bypass.png | Sign-in logs showing CA Not Applied, single-factor auth |
-| DE-02 | 11-P2-DE-CA-Policy-Explicit-Exclusion.png | CA policy exclusion - CEO account confirmed |
+| 09 | [09-P2-DE-SignIn-Logs-MFA-Bypass.png](../Evidence/screenshots/detection/09-P2-DE-SignIn-Logs-MFA-Bypass.png) | Sign-in logs showing CA Not Applied, single-factor auth |
+| 11 | [11-P2-DE-CA-Policy-Explicit-Exclusion.png](../Evidence/screenshots/detection/11-P2-DE-CA-Policy-Explicit-Exclusion.png) | CA policy exclusion - CEO account confirmed as root cause |

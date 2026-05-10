@@ -28,8 +28,8 @@ Sign-in logs reviewed post-recovery to confirm:
 
 | # | Screenshot | Description |
 |---|---|---|
-| RC-01 | 14-P2-RC-CEO-MFA-Authenticator-Enabled.png | MFA re-enrolled on new device |
-| RC-02 | 15-P2-RC-Post-Remediation-MFA-Enforced.png | Post-recovery sign-in - CA Success, MFA enforced |
+| 14 | [14-P2-RC-CEO-MFA-Authenticator-Enabled.png](../Evidence/screenshots/recovery/14-P2-RC-CEO-MFA-Authenticator-Enabled.png) | MFA re-enrolled on CEO new mobile device |
+| 15 | [15-P2-RC-Post-Remediation-MFA-Enforced.png](../Evidence/screenshots/recovery/15-P2-RC-Post-Remediation-MFA-Enforced.png) | Post-recovery sign-in - CA Success, MFA enforced |
 
 ## Recovery Validation Checklist
 
@@ -46,6 +46,4 @@ Sign-in logs reviewed post-recovery to confirm:
 
 The underlying problem was a usability issue (device change broke MFA), not
 a security requirement. Solving the usability problem properly eliminated the
-need for the security exception entirely. This pattern - security exceptions
-masking unresolved usability problems - is extremely common in enterprise
-environments.
+need for the security exception entirely.

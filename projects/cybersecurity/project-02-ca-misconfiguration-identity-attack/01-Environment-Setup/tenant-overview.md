@@ -19,8 +19,6 @@ rather than background platform noise or inherited legacy settings.
 | **Directory State** | Newly created - no pre-existing policies |
 | **User Model** | Native cloud users only (no hybrid identities) |
 
-This mirrors how many organizations deploy Microsoft 365 without on-premises AD.
-
 ## Authentication Baseline
 
 At baseline the tenant was configured with modern authentication controls:
@@ -49,6 +47,6 @@ At baseline the tenant was configured with modern authentication controls:
 
 | # | Screenshot | Description |
 |---|---|---|
-| 1.1 | 01-P2-BL-ENTRA-Tenant-Overview.png | Entra ID tenant details and licensing at baseline |
-| 1.2 | 03-P2-BL-Auth-Methods-Configuration.png | Authentication methods - Authenticator enabled |
-| 1.3 | 04-P2-BL-SignIn-Logs-Clean.png | Baseline sign-in logs - MFA enforced, no anomalies |
+| 01 | [01-P2-BL-ENTRA-Tenant-Overview.png](../Evidence/screenshots/baseline/01-P2-BL-ENTRA-Tenant-Overview.png) | Entra ID tenant details and licensing at baseline |
+| 03 | [03-P2-BL-Auth-Methods-Configuration.png](../Evidence/screenshots/baseline/03-P2-BL-Auth-Methods-Configuration.png) | Authentication methods - Authenticator enabled |
+| 04 | [04-P2-BL-SignIn-Logs-Clean.png](../Evidence/screenshots/baseline/04-P2-BL-SignIn-Logs-Clean.png) | Baseline sign-in logs - MFA enforced, no anomalies |

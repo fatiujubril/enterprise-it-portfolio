@@ -10,7 +10,7 @@ without disrupting the broader tenant or other user accounts.
 ### Action 1 - Remove CA Policy Exclusion
 
 The CEO account was removed from the exclusion list of the
-`CA-Baseline-Require-MFA-All-Users` policy.
+CA-Baseline-Require-MFA-All-Users policy.
 
 - Policy remained enabled for all other users throughout
 - No report-only state or policy rollback used
@@ -26,7 +26,7 @@ Post-removal sign-in attempts confirmed:
 
 | # | Screenshot | Description |
 |---|---|---|
-| IR-01 | 12-P2-IR-CA-Exclusion-Removed.png | CA exclusion removed - CEO no longer in exclusion list |
+| 12 | [12-P2-IR-CA-Exclusion-Removed.png](../Evidence/screenshots/incident-response/12-P2-IR-CA-Exclusion-Removed.png) | CA exclusion removed - CEO no longer in exclusion list |
 
 ## Containment Outcome
 

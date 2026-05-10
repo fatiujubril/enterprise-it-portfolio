@@ -11,9 +11,6 @@ across the tenant using a single, clearly scoped policy.
 - No user, role, or device-based exclusions
 - Policy enabled and actively enforcing (not report-only)
 
-This reflects a recommended Conditional Access deployment pattern for
-small-to-medium enterprise environments.
-
 ## Baseline Policy Configuration
 
 | Setting | Value |
@@ -38,4 +35,4 @@ Before any misconfiguration:
 
 | # | Screenshot | Description |
 |---|---|---|
-| 2.1 | 02-P2-BL-CA-Policy-List.png | Active CA policies at baseline - MFA enforcement confirmed |
+| 02 | [02-P2-BL-CA-Policy-List.png](../Evidence/screenshots/baseline/02-P2-BL-CA-Policy-List.png) | Active CA policies at baseline - MFA enforcement confirmed |
