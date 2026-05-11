@@ -26,15 +26,15 @@ Files are numbered sequentially for easy cross-reference.
 | # | File | Description |
 |---|---|---|
 | 09 | [09-P2-DE-SignIn-Logs-MFA-Bypass.png](screenshots/detection/09-P2-DE-SignIn-Logs-MFA-Bypass.png) | Sign-in logs - CA Not Applied, single-factor auth on CEO |
-| 10 | [10-P2-DE-CA-Policy-Config.png](screenshots/detection/10-P2-DE-CA-Policy-Config.png) | CA policy configuration review |
-| 11 | [11-P2-DE-CA-Policy-Explicit-Exclusion.png](screenshots/detection/11-P2-DE-CA-Policy-Explicit-Exclusion.png) | CA policy exclusion confirmed as root cause |
+| 10 | [10-P2-DE-CA-Policy-Config.png](screenshots/detection/10-P2-DE-CA-Policy-Config.png) | CA policy configuration at time of detection |
+| 11 | [11-P2-DE-CA-Policy-Explicit-Exclusion.png](screenshots/detection/11-P2-DE-CA-Policy-Explicit-Exclusion.png) | CA policy exclusion - CEO account confirmed as root cause |
 
 ## Incident Response Evidence
 
 | # | File | Description |
 |---|---|---|
-| 12 | [12-P2-IR-CA-Exclusion-Removed.png](screenshots/incident-response/12-P2-IR-CA-Exclusion-Removed.png) | CA exclusion removed - CEO no longer excluded |
-| 13 | [13-P2-IR-CA-MFA-Enforced.png](screenshots/incident-response/13-P2-IR-CA-MFA-Enforced.png) | MFA enforcement confirmed post-containment |
+| 12 | [12-P2-IR-CA-Exclusion-Removed.png](screenshots/incident-response/12-P2-IR-CA-Exclusion-Removed.png) | CA policy Exclude tab - all exclusions empty, CEO exclusion removed |
+| 13 | [13-P2-IR-CA-MFA-Enforced.png](screenshots/incident-response/13-P2-IR-CA-MFA-Enforced.png) | Sign-in log before/after - bottom=single-factor bypass, top=MFA enforced post-remediation |
 
 ## Recovery Evidence
 
@@ -49,3 +49,4 @@ Files are numbered sequentially for easy cross-reference.
 - No real user data or client information included
 - Files numbered sequentially to support phase-based narrative
 - Phase prefix codes: BL=Baseline, AT=Attack, DE=Detection, IR=Incident Response, RC=Recovery
+- Screenshot 13 is the key validation artifact - shows the complete before/after remediation story
