@@ -1,92 +1,92 @@
 # Enterprise IT & Cybersecurity Portfolio
+### Identity & Cloud Security | Microsoft Entra ID | Sentinel | Defender XDR
 
-Hands-on portfolio demonstrating **Cybersecurity**, **Identity & Access Management (IAM)**, and **Enterprise IT Operations** in Microsoft-centric environments.
+Hands-on portfolio demonstrating **Identity & Cloud Security Engineering** in Microsoft-centric enterprise environments.
 
-Built around **real-world failure scenarios**: how security and IT controls break, how issues are detected, and how they are remediated and governed long-term.
-
-> **Includes an in-progress Privileged Access & Vulnerability Risk Program (Cloud + SIEM + IaC)** focused on reducing administrative risk and improving detection visibility.
-
----
-
-## What This Portfolio Demonstrates
-
-- Practical **security engineering & SecOps** thinking  
-- **Identity-first security** (Entra ID, Conditional Access, MFA, governance)  
-- **Incident response & investigation** using logs and telemetry  
-- **Enterprise IT operations** with a security-first mindset  
-- Clear, repeatable **documentation and decision-making**
+Built around **real-world failure scenarios**: how identity and cloud security controls break, how failures are detected through telemetry, and how they are remediated, hardened, and governed.
 
 ---
 
-## 🔐 Cybersecurity Projects
+## Focus Area
 
-### **Project 01 – Microsoft 365 Phishing Incident Response**
-Simulated phishing incident covering detection, investigation, containment, and post-incident hardening in a Microsoft 365 environment.
+This portfolio is specifically targeted at **Identity & Cloud Security Engineer** roles.
 
-**Demonstrates:**  
-Incident response · Email security · Account compromise handling · Operational hygiene
-
-📂 [`View project`](./projects/cybersecurity/project-01-m365-phishing-incident-response/README.md)
+Every project is designed to demonstrate the depth, engineering thinking, and documentation quality expected at that level — not just tool familiarity.
 
 ---
 
-### **Project 02 – Conditional Access Failure & Identity Attack Simulation**
-Identity attack scenario showing how a **Conditional Access misconfiguration** can bypass MFA for a high-value account—without malware or phishing.
+## Cybersecurity Projects
 
-**Demonstrates:**  
-Entra ID · Conditional Access · MFA validation · Identity governance · Telemetry-driven investigation
+### Project 01 — Identity Compromise via Phishing: M365 Detection, Containment & Hardening
+**Status: Complete**
 
-📂 [`View project`](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
+Simulates a credential phishing attack resulting in unauthorized cloud authentication, mailbox-based persistence, and internal phishing propagation — all without malware or endpoint exploitation.
 
----
+Covers the full incident response lifecycle from anomaly detection through containment, remediation, and identity hardening using Entra ID sign-in logs and Exchange Online telemetry.
 
-### **Project 03 – Privileged Access + Vulnerability Risk Program** *(In Progress)*
-Security engineering program focused on **privileged access risk**, **vulnerability exposure**, and **SIEM visibility**, designed with an **IaC and governance-first mindset**.
+**Demonstrates:** Incident Response · Identity Threat Investigation · Entra ID · Exchange Online · MITRE ATT&CK Mapping · KQL · Conditional Access · Evidence Handling
 
-**Focus areas:**  
-Privileged identity · Risk prioritization · SIEM detections · Secure-by-default baselines
-
-📌 Status: In progress
+📂 [View Project](./projects/cybersecurity/project-01-identity-compromise-m365-phishing/README.md)
 
 ---
 
-## 🛠️ Systems & IT Engineering *(In Progress)*
+### Project 02 — Conditional Access Misconfiguration & Identity Attack Simulation
+**Status: Complete**
 
-Upcoming projects covering:
-- Microsoft 365 & Entra ID administration  
-- Identity lifecycle (Joiner / Mover / Leaver)  
-- Windows Server, AD, and endpoint management  
-- Automation with PowerShell  
-- Backup, recovery, and operational governance  
+Simulates how a legitimate administrative decision made under business pressure creates a high-risk MFA bypass for a high-value executive identity — without any external attacker involved.
 
----
+Demonstrates detection via sign-in telemetry, containment by removing the CA exception, and recovery through proper MFA re-enrollment — proving that identity governance failures are often more dangerous than external attacks.
 
-## Resume & Applications
+**Demonstrates:** Entra ID · Conditional Access · MFA Enforcement Validation · Identity Governance · Sign-in Log Analysis · KQL Detection · MITRE ATT&CK · Incident Response Lifecycle
 
-I maintain **role-specific, tailored PDF resumes** (Cybersecurity, IAM, Systems).  
-A single static resume is intentionally not linked.
-
-Happy to share the appropriate version during an application or interview.
+📂 [View Project](./projects/cybersecurity/project-02-ca-misconfiguration-identity-attack/README.md)
 
 ---
 
-## How to Review (Optional)
+### Project 03 — Privileged Identity & Cloud Security Program
+**Status: In Progress — Building Now**
 
-- Skim a project README for **scenario → findings → remediation**
-- Review screenshots/logs if you want deeper technical detail  
-Each project is understandable end-to-end without prior context.
+Designs and implements an enterprise-grade privileged identity governance and cloud security program across Microsoft Entra ID and Azure.
 
----
+Covers Zero Trust architecture, PIM-based JIT access, Conditional Access policy design, Defender for Cloud CSPM, Microsoft Sentinel detection engineering (8 KQL rules mapped to MITRE ATT&CK), GRC artifacts, and a tabletop exercise.
 
-## Contact / Next Steps
+**Focus areas:** Entra ID PIM · Zero Trust · Defender for Cloud · Microsoft Sentinel · KQL Detection Engineering · Risk Register · NIST CSF Control Mapping · Incident Tabletop
 
-This portfolio is actively maintained and expanded.
-
-I’m happy to:
-- Walk through any project
-- Explain trade-offs and design decisions
-- Discuss how these scenarios map to production environments
+📂 [View Project](./projects/cybersecurity/project-03-privileged-identity-cloud-security-program/README.md)
 
 ---
 
-*All projects use lab environments and sanitized data. No client or confidential information is included.*
+### Project 04 — KQL Detection Workbook
+**Status: In Progress — Building Now**
+
+Custom KQL detection workbook built in Microsoft Sentinel covering identity, cloud, and endpoint threat scenarios mapped to MITRE ATT&CK.
+
+Includes detection rule engineering, false positive tuning log, MITRE coverage matrix, and lessons learned.
+
+**Focus areas:** KQL · Microsoft Sentinel · MITRE ATT&CK · Detection Engineering · Threat Hunting · False Positive Tuning
+
+📂 [View Project](./projects/cybersecurity/project-04-kql-detection-workbook/README.md)
+
+---
+
+## Certifications
+
+Microsoft Certified: Security Operations Analyst (SC-200) · Microsoft 365 Administrator (MS-102) · Azure Fundamentals (AZ-900) · CompTIA Security+ · CSIS · CIOS · Network+ · A+ · ITIL 4 Foundation · ServiceNow Administrator
+
+---
+
+## About This Portfolio
+
+- Every project is built end-to-end in a controlled lab environment
+- Evidence-backed with screenshots organized by phase
+- Documented to production standard — executive summaries, MITRE mapping, GRC alignment
+- All content is original lab work — no client or confidential data included
+
+---
+
+## Contact
+
+**LinkedIn:** https://www.linkedin.com/in/fatiu-jubril/
+**GitHub:** https://github.com/fatiujubril/enterprise-it-portfolio
+
+Happy to walk through any project, explain design decisions, or discuss how these scenarios map to production environments.
