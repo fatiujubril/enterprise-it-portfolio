@@ -1,17 +1,14 @@
-# Enterprise IT & Cybersecurity Portfolio
-### Identity & Cloud Security | Microsoft Entra ID | Sentinel | Defender XDR
+# Identity & Cloud Security Engineering Portfolio
 
-Hands-on portfolio demonstrating **Identity & Cloud Security Engineering** in Microsoft-centric enterprise environments.
+### Microsoft Entra ID · Conditional Access · PIM · Microsoft Sentinel · Defender XDR · Azure
 
-Built around **real-world failure scenarios**: how identity and cloud security controls break, how failures are detected through telemetry, and how they are remediated, hardened, and governed.
+Hands-on identity and cloud security engineering portfolio built around real-world failure scenarios — how identity and cloud controls break, how failures are detected through telemetry, and how they are remediated, hardened, and governed at program level.
 
 ---
 
 ## Focus Area
 
-This portfolio is specifically targeted at **Identity & Cloud Security Engineer** roles.
-
-Every project is designed to demonstrate the depth, engineering thinking, and documentation quality expected at that level — not just tool familiarity.
+Every project is built to demonstrate the depth, engineering thinking, and documentation quality expected of an **Identity & Cloud Security Engineer** — not just tool familiarity. Each project covers a real failure scenario, detection methodology, remediation, and governance improvement.
 
 ---
 
