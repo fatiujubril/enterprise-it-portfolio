@@ -240,14 +240,24 @@ Defender for Cloud → Environment settings → Azure subscription 1
 
 ### 6.1 Before/After Secure Score
 
-| Metric | Before Remediation | After Remediation (Target) |
-|---|---|---|
-| Secure Score | 50% | 70%+ |
-| Medium recommendations | 0 active (storage findings) | 0 |
-| Low recommendations | 10 | 5 or fewer |
-| Regulatory compliance | 54/63 | 58/63+ |
+| Metric | Before Remediation | After Remediation | Change |
+|---|---|---|---|
+| Secure Score | 50% | **67%** | +17% ✅ |
+| Critical recommendations | 0 | 0 | — |
+| High recommendations | 0 | 0 | — |
+| Medium recommendations | 0 | 0 | — |
+| Low recommendations | 10 | 2 | -8 ✅ |
+| Regulatory compliance | 54/63 | **61/63** | +7 controls ✅ |
+| Azure CSPM compliance | 0/1 | **1/1** | 100% ✅ |
+| Unhealthy resources | 3 | 2 | -1 ✅ |
+| Not applicable resources | 0 | 1 | Exemptions working ✅ |
 
-*After screenshots will be added upon remediation completion.*
+**Remaining findings — accepted risk:**
+
+| Finding | Resource | Decision | Rationale |
+|---|---|---|---|
+| Storage account should use a private link connection | fatiulabstorage01 | Accepted | Private endpoint implementation deferred — lab environment |
+| There should be more than one owner assigned to subscriptions | Azure subscription 1 | Accepted | Single admin acceptable in lab — production would require secondary owner |
 
 ---
 
@@ -301,5 +311,10 @@ Defender for Cloud does not operate in isolation — it integrates with the iden
 | [P3-DFC-06-Storage-Account-Overview.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-06-Storage-Account-Overview.png) | Storage account properties overview |
 | [P3-DFC-07-Inventory.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-07-Inventory.png) | Inventory — 3 resources, 3 unhealthy |
 | [P3-DFC-08-Secure-Score-Baseline.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-08-Secure-Score-Baseline.png) | Secure Score baseline — 50% |
-| P3-DFC-09-Recommendations.png | Recommendations list — pending screenshot |
-| P3-DFC-10-Secure-Score-After.png | Secure Score after remediation — pending |
+| [P3-DFC-09-Recommendations.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-09-Recommendations.png) | Baseline recommendations — 10 Low findings |
+| [P3-DFC-10-Remediation-SharedKey-Disabled.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-10-Remediation-SharedKey-Disabled.png) | Shared key access disabled |
+| [P3-DFC-11-Remediation-NetworkAccess-Disabled.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-11-Remediation-NetworkAccess-Disabled.png) | Public network access disabled |
+| [P3-DFC-12-Remediation-SecurityContact.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-12-Remediation-SecurityContact.png) | Security contact email configured |
+| [P3-DFC-13-Exemptions.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-13-Exemptions.png) | Three exemptions created with justification |
+| [P3-DFC-14-Recommendations-After.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-14-Recommendations-After.png) | Recommendations after — 2 Low remaining |
+| [P3-DFC-15-Secure-Score-After.png](../Evidence/Phase-02-Cloud-Security/Defender-for-Cloud/P3-DFC-15-Secure-Score-After.png) | Secure Score after remediation — 67% |
