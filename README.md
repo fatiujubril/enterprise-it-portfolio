@@ -41,20 +41,22 @@ Demonstrates detection via sign-in telemetry, containment by removing the CA exc
 ---
 
 ### Project 03 — Privileged Identity & Cloud Security Program
-**Status: In Progress — Building Now**
+**Status: Complete**
 
-Designs and implements an enterprise-grade privileged identity governance and cloud security program across Microsoft Entra ID and Azure.
+Enterprise-grade Privileged Identity & Cloud Security Program built from scratch on Microsoft Entra ID and Azure for a fictional 200-person FinTech regulated under PCI-DSS and PIPEDA.
 
-Covers Zero Trust architecture, PIM-based JIT access, Conditional Access policy design, Defender for Cloud CSPM, Microsoft Sentinel detection engineering (8 KQL rules mapped to MITRE ATT&CK), GRC artifacts, and a tabletop exercise.
+Delivers a complete security program across four phases: Zero Trust identity governance (Conditional Access, PIM, Access Reviews), cloud security posture management (Defender for Cloud, CIS benchmark), detection engineering (8 custom Sentinel KQL rules mapped to MITRE ATT&CK), and GRC (risk register, NIST CSF control mapping, exception register, incident tabletop).
 
-**Focus areas:** Entra ID PIM · Zero Trust · Defender for Cloud · Microsoft Sentinel · KQL Detection Engineering · Risk Register · NIST CSF Control Mapping · Incident Tabletop
+**Results:** Secure Score 50% → 67% · CIS 66/81 controls (81%) · MCSB 61/63 (97%) · 8 detection rules · 12 risks documented · 0 residual risks at High or Critical
+
+**Demonstrates:** Entra ID PIM · Zero Trust · Conditional Access Design · Defender for Cloud · CIS Benchmark · Microsoft Sentinel · KQL Detection Engineering · MITRE ATT&CK · NIST CSF · Risk Register · GRC · Incident Tabletop
 
 📂 [View Project](./projects/cybersecurity/project-03-privileged-identity-cloud-security-program/README.md)
 
 ---
 
 ### Project 04 — KQL Detection Workbook
-**Status: In Progress — Building Now**
+**Status: Not Started**
 
 Custom KQL detection workbook built in Microsoft Sentinel covering identity, cloud, and endpoint threat scenarios mapped to MITRE ATT&CK.
 
@@ -70,6 +72,8 @@ Includes detection rule engineering, false positive tuning log, MITRE coverage m
 
 Microsoft Certified: Security Operations Analyst (SC-200) · Microsoft 365 Administrator (MS-102) · Azure Fundamentals (AZ-900) · CompTIA Security+ · CSIS · CIOS · Network+ · A+ · ITIL 4 Foundation · ServiceNow Administrator
 
+**In Progress:** Microsoft Identity and Access Administrator (SC-300) · CISSP
+
 ---
 
 ## About This Portfolio
@@ -83,7 +87,7 @@ Microsoft Certified: Security Operations Analyst (SC-200) · Microsoft 365 Admin
 
 ## Contact
 
-**LinkedIn:** https://www.linkedin.com/in/fatiu-jubril/
+**LinkedIn:** https://www.linkedin.com/in/fatiu-jubril/  
 **GitHub:** https://github.com/fatiujubril/enterprise-it-portfolio
 
 Happy to walk through any project, explain design decisions, or discuss how these scenarios map to production environments.
