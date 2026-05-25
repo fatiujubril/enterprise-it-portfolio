@@ -1,114 +1,222 @@
-﻿# Project 03 - Privileged Identity & Cloud Security Program
+# Project 03 — Privileged Identity & Cloud Security Program
 
-> **Type:** Security Engineering Program / Identity Governance / Cloud Security
-> **Environment:** Microsoft Entra ID / Azure / Microsoft Sentinel
-> **Difficulty:** Advanced
-> **Status:** In Progress
-
----
-
-## Executive Summary
-
-This project documents the design, implementation, and validation of an
-enterprise-grade privileged identity governance and cloud security program
-across Microsoft Entra ID and Azure.
-
-Rather than simulating a single incident, this project builds a **complete
-security program** â€” covering identity governance, cloud security posture,
-detection engineering, GRC, and incident response â€” the way a senior
-Identity & Cloud Security Engineer would deliver it in a real organization.
-
-**Program Outcomes:**
-- Zero Trust identity controls enforced via Conditional Access and PIM
-- Privileged access governed through JIT activation and access reviews
-- Azure cloud security posture baselined and hardened via Defender for Cloud
-- 8 detection rules built and tuned in Microsoft Sentinel mapped to MITRE ATT&CK
-- GRC artifacts produced: risk register, control mapping, exception register
-- Tabletop exercise executed: compromised admin + Azure privilege abuse scenario
+**Stack:** Microsoft Entra ID · Azure · Microsoft Sentinel · Defender for Cloud · PIM · Conditional Access · KQL  
+**Frameworks:** NIST CSF · CIS Azure Foundations v2.0.0 · MITRE ATT&CK · PCI-DSS · PIPEDA  
+**Status:** Complete
 
 ---
 
-## Threat Context
+## Overview
 
-Identity is the primary attack surface in modern cloud environments.
-Microsoft reports that over 90% of cloud breaches involve compromised
-or misconfigured identity controls.
+Enterprise-grade Privileged Identity & Cloud Security Program built from scratch on Microsoft Entra ID and Azure — demonstrating the depth, design thinking, and documentation quality expected of an Identity & Cloud Security Engineer.
 
-This program addresses the most common identity and cloud security failures:
-- Permanent privileged role assignments (no JIT, no time-bound access)
-- MFA not enforced via Conditional Access for privileged identities
-- Cloud security posture not baselined or continuously monitored
-- No detection coverage for identity-based attack techniques
-- No governance process for access reviews or policy exceptions
+FatiuLab Security is a fictional 200-person FinTech company processing customer payment data, regulated under PCI-DSS and PIPEDA. Every control decision is grounded in real business risk, and every finding is backed by lab evidence.
+
+This is not a checklist of configurations. It is a complete security program — from Zero Trust identity governance through cloud security posture management, detection engineering, GRC risk management, and a tested incident response capability.
 
 ---
 
-## Environment
+## What This Project Proves
+
+**Identity Governance:**
+- Zero Trust Conditional Access policy design — 5 policies, MFA enforcement, legacy auth eliminated
+- Just-In-Time privileged access via PIM — no standing privilege, approval workflows, full audit trail
+- Time-bound eligible assignments — quarterly and semi-annual expiry enforced
+- Automated access reviews — auto-remove on non-response, monthly monitoring of CA exclusions
+
+**Cloud Security Posture:**
+- Defender for Cloud CSPM — Secure Score improved from 50% to 67% (+17%)
+- CIS Azure Foundations Benchmark v2.0.0 — 66/81 controls passing (81%)
+- Microsoft Cloud Security Benchmark — 61/63 controls passing (97%)
+- Storage account hardening — public access disabled, shared key access disabled
+- Documented exception register — 7 exceptions with business justification and compensating controls
+
+**Detection Engineering:**
+- 8 custom Sentinel analytics rules mapped to MITRE ATT&CK
+- 3 data sources: AuditLogs, SigninLogs, AzureActivity
+- 4 MITRE techniques covered across 3 tactics
+- NRT rule for break-glass account sign-in — 1-2 minute detection latency
+- Full tuning log — false positive analysis and planned improvements per rule
+
+**GRC:**
+- Risk register — 12 identity and cloud risks, inherent and residual scoring
+- NIST CSF control mapping — every control mapped to framework categories
+- Exception register — 7 documented exceptions with compensating controls
+- Compliance alignment — PCI-DSS, PIPEDA, CIS, NIST CSF cross-referenced throughout
+
+**Incident Tabletop:**
+- Scenario: AiTM phishing → Security Admin compromise → Azure privilege abuse
+- 5 exercise injects with response discussion
+- Full attack and response timeline
+- RACI matrix — roles and responsibilities defined
+- 7-item improvement backlog with priorities and timelines
+
+---
+
+## Lab Environment
 
 | Component | Detail |
 |---|---|
-| **Identity Platform** | Microsoft Entra ID (cloud-only) |
-| **Cloud Platform** | Microsoft Azure |
-| **SIEM** | Microsoft Sentinel |
-| **PAM** | Entra ID Privileged Identity Management (PIM) |
-| **CSPM** | Microsoft Defender for Cloud |
-| **Licensing** | Microsoft 365 + Entra ID P2 + Azure subscription |
+| Tenant | FatiuLab Security (FatiuLabSecurity.onmicrosoft.com) |
+| License | Microsoft 365 Business Premium + Entra ID P2 |
+| Users | Global Admin, Security Admin, Standard User, Break Glass |
+| Groups | SEC-Global-Admins, SEC-Admins, SEC-Standard-Users, SEC-CA-Exclusions, SEC-PIM-Eligible |
+| Azure Subscription | Azure subscription 1 — Canada Central |
+| Sentinel Workspace | LAW-FatiuLab-Security |
+| Resource Group | RG-FatiuLab-Security |
 
 ---
 
-## Program Structure
+## Program Results
 
-| Phase | Folder | Focus |
-|---|---|---|
-| Architecture | [01-Architecture](01-Architecture/solution-architecture.md) | Zero Trust design, environment overview |
-| Identity Governance | [02-Identity-Governance](02-Identity-Governance/pim-design.md) | PIM, CA policies, access reviews, lifecycle |
-| Cloud Security Posture | [03-Cloud-Security-Posture](03-Cloud-Security-Posture/defender-for-cloud.md) | CSPM, Azure Policy, benchmark alignment |
-| Detection Engineering | [04-Detection-Engineering](04-Detection-Engineering/detection-rules.md) | Sentinel rules, MITRE mapping, tuning |
-| GRC | [05-GRC](05-GRC/risk-register.md) | Risk register, control mapping, exceptions |
-| Incident Tabletop | [06-Incident-Tabletop](06-Incident-Tabletop/scenario.md) | Compromised admin + Azure abuse scenario |
-
----
-
-## MITRE ATT&CK Coverage
-
-| # | Detection Rule | Technique ID | Technique |
-|---|---|---|---|
-| 1 | PIM role activation outside business hours | T1078 | Valid Accounts |
-| 2 | Global Admin assigned outside PIM | T1078.004 | Cloud Accounts |
-| 3 | MFA disabled for privileged account | T1556 | Modify Authentication Process |
-| 4 | Conditional Access policy modified or disabled | T1556 | Modify Authentication Process |
-| 5 | Impossible travel on admin account | T1078 | Valid Accounts |
-| 6 | Azure Owner/Contributor role assignment | T1098 | Account Manipulation |
-| 7 | Defender for Cloud high severity finding | T1190 | Exploit Public-Facing Application |
-| 8 | Break-glass account sign-in detected | T1078 | Valid Accounts |
+| Metric | Result |
+|---|---|
+| Conditional Access policies | 5 active (CA01–CA05) |
+| PIM roles under JIT governance | 2 (Global Admin, Security Admin) |
+| Access reviews | 2 (quarterly + monthly) |
+| Defender Secure Score | 50% → **67%** (+17%) |
+| CIS benchmark compliance | **66/81 controls (81%)** |
+| MCSB compliance | **61/63 controls (97%)** |
+| Sentinel data connectors | 11 connected |
+| Custom detection rules | 8 (7 Scheduled + 1 NRT) |
+| MITRE techniques covered | 4 (T1078, T1098, T1190, T1556) |
+| Risks documented | 12 |
+| Exceptions documented | 7 |
+| Residual risks at High/Critical | 0 |
 
 ---
 
-## Key Engineering Decisions
+## Project Structure
 
-- **PIM over permanent roles** - all privileged access is time-bound and approval-gated
-- **Conditional Access as enforcement layer** - MFA registration alone is insufficient
-- **Sentinel as detection platform** - custom KQL rules over default alert rules
-- **Defender for Cloud as CSPM** - continuous posture monitoring over point-in-time audits
-- **NIST CSF as GRC framework** - industry-standard control mapping
+```
+project-03-privileged-identity-cloud-security-program/
+│
+├── 00-Executive-Summary/
+│   └── executive-summary.md
+│
+├── 01-Architecture/
+│   ├── solution-architecture.md
+│   ├── zero-trust-design.md
+│   └── environment-overview.md
+│
+├── 02-Identity-Governance/
+│   ├── conditional-access-design.md    ← Zero Trust CA policy framework
+│   ├── pim-design.md                   ← JIT privileged access program
+│   ├── access-reviews.md               ← Identity governance review program
+│   └── identity-lifecycle.md           ← Joiner/mover/leaver process
+│
+├── 03-Cloud-Security-Posture/
+│   ├── defender-for-cloud.md           ← CSPM baseline and remediation
+│   ├── azure-policy.md                 ← CIS benchmark compliance
+│   └── security-benchmark.md           ← Cross-framework posture analysis
+│
+├── 04-Detection-Engineering/
+│   ├── sentinel-architecture.md        ← Workspace and connector design
+│   ├── detection-rules.md              ← 8 custom KQL analytics rules
+│   ├── mitre-coverage.md               ← ATT&CK coverage matrix
+│   └── tuning-log.md                   ← False positive and tuning register
+│
+├── 05-GRC/
+│   ├── risk-register.md                ← 12 identity and cloud risks
+│   ├── control-mapping.md              ← NIST CSF framework alignment
+│   └── exception-register.md           ← 7 documented exceptions
+│
+├── 06-Incident-Tabletop/
+│   ├── scenario.md                     ← AiTM phishing + Azure abuse
+│   ├── timeline.md                     ← Attack and response timeline
+│   ├── raci.md                         ← Roles and responsibilities
+│   └── lessons-learned.md              ← 7-item improvement backlog
+│
+└── Evidence/
+    ├── Phase-01-Identity/
+    │   ├── P3-BL-01 through P3-BL-04   ← Baseline setup
+    │   ├── CA-Policies/                 ← 19 CA policy screenshots
+    │   ├── PIM/                         ← 12 PIM screenshots
+    │   └── Access-Reviews/              ← 4 access review screenshots
+    ├── Phase-02-Cloud-Security/
+    │   ├── Defender-for-Cloud/          ← 15 CSPM screenshots
+    │   └── Azure-Policy/                ← 6 CIS benchmark screenshots
+    └── Phase-03-Detections/
+        ├── Sentinel/                    ← 4 Sentinel setup screenshots
+        └── Analytics-Rules/             ← 8 detection rule screenshots
+```
 
 ---
 
-## Skills Demonstrated
+## Week-by-Week Build
 
-Microsoft Entra ID, Privileged Identity Management, Conditional Access,
-Zero Trust Architecture, Microsoft Defender for Cloud, Azure Policy,
-Microsoft Sentinel, KQL Detection Engineering, MITRE ATT&CK Mapping,
-Risk Register, Control Mapping, GRC, Incident Tabletop, Security Program Design
+### Week 1 — Identity Governance
+Built the Zero Trust identity foundation from scratch in a fresh Entra ID tenant:
+- 4 users and 5 security groups with clear role separation
+- 5 Conditional Access policies — MFA enforcement, legacy auth block, Azure Management protection
+- PIM configuration — JIT access, approval workflows, time-limited activations
+- 2 automated access reviews — quarterly privileged groups, monthly CA exclusions
+- Break-glass account with offline credentials and monthly monitoring
+
+### Week 2 — Cloud Security Posture
+Linked Azure subscription, deployed Defender for Cloud, and hardened the environment:
+- Defender CSPM enabled — Foundational + Defender plans
+- Resource deployment — storage account with intentional insecure defaults as baseline
+- CSPM remediation — Secure Score 50% → 67% through targeted hardening
+- CIS Azure Foundations Benchmark v2.0.0 assigned — 66/81 controls passing
+- 3 documented exemptions with business justification
+- Microsoft Sentinel workspace deployed with 11 data connectors
+
+### Week 3 — Detection Engineering
+Built 8 custom analytics rules in Sentinel covering the identity attack chain:
+- Simulation activities to generate real log data across AuditLogs, SigninLogs, AzureActivity
+- 8 rules deployed — PIM abuse, CA policy changes, impossible travel, Azure role assignments, break-glass sign-in
+- MITRE ATT&CK mapping across 3 tactics and 4 techniques
+- Tuning log documenting false positive analysis and planned improvements per rule
+
+### Week 4 — GRC + Tabletop
+Built the governance and evidence layer that ties the program together:
+- Risk register — 12 risks, all residual risks at Medium or Low
+- NIST CSF control mapping — every control mapped across Identify/Protect/Detect/Respond/Recover
+- Exception register — 7 exceptions with compensating controls and review dates
+- Tabletop exercise — AiTM phishing scenario, 5 injects, full response walkthrough
+- 7-item improvement backlog including phishing-resistant MFA and automated containment
 
 ---
 
-## How to Review This Project
+## Detection Rules Summary
 
-- Start with **01-Architecture** for the full environment and design context
-- Follow **02-Identity-Governance** for the identity controls implementation
-- Review **04-Detection-Engineering/detection-rules.md** for KQL engineering depth
-- Review **05-GRC** for business and compliance maturity
-- End with **06-Incident-Tabletop** for the operational validation
+| ID | Rule | Severity | Type | MITRE |
+|---|---|---|---|---|
+| DET-01 | PIM Activation Outside Business Hours | Medium | Scheduled | T1078.004 |
+| DET-02 | Global Admin Assigned Outside PIM | High | Scheduled | T1078.004 |
+| DET-03 | MFA Disabled for Privileged Account | High | Scheduled | T1556.006 |
+| DET-04 | CA Policy Modified or Disabled | High | Scheduled | T1556.009 |
+| DET-05 | Impossible Travel on Admin Account | High | Scheduled | T1078.004 |
+| DET-06 | Azure Privileged Role Assignment | High | Scheduled | T1098.003 |
+| DET-07 | Break-Glass Account Sign-In | High | **NRT** | T1078.004 |
+| DET-08 | Defender for Cloud High Severity Finding | High | Scheduled | T1190 |
 
-*All activity performed in a controlled lab environment.*
+---
+
+## Compliance Coverage
+
+| Framework | Result |
+|---|---|
+| CIS Azure Foundations v2.0.0 | 66/81 controls (81%) |
+| Microsoft Cloud Security Benchmark | 61/63 controls (97%) |
+| Azure CSPM | 1/1 (100%) |
+| PCI-DSS key requirements | Req 7, 8, 10, 11, 12 addressed |
+| PIPEDA | Principles 4, 7 addressed |
+| NIST CSF | Identify, Protect, Detect, Respond, Recover all mapped |
+
+---
+
+## Key Design Decisions
+
+**Why one permanent Global Administrator?**
+PIM requires at least one permanent GA to process activation approvals. Without it, a PIM outage would block all privileged access. This is documented as EXP-01 with compensating controls.
+
+**Why is CA05 in Report-only?**
+Standard users haven't completed MFA registration. Enforcing before registration locks users out — an availability incident. Staged rollout is the correct enterprise approach. Documented as EXP-07.
+
+**Why Foundational CSPM instead of all Defender plans?**
+CWPP plans charge per deployed resource. With zero servers, databases, or containers, enabling workload protection plans provides no benefit and incurs unnecessary cost. Compensating controls documented for each deferred plan.
+
+**Why NRT for break-glass detection only?**
+Break-glass sign-in requires immediate detection — any use is a critical security event. Other rules tolerate 1-hour scheduled latency because their attack scenarios develop over longer timeframes. NRT is used where latency materially affects response capability.
