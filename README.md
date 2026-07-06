@@ -56,7 +56,7 @@ Delivers a complete security program across four phases: Zero Trust identity gov
 ---
 
 ### Project 04 — KQL Detection Workbook
-**Status: Not Started**
+**Status: In Progress**
 
 Custom KQL detection workbook built in Microsoft Sentinel covering identity, cloud, and endpoint threat scenarios mapped to MITRE ATT&CK.
 
@@ -68,11 +68,26 @@ Includes detection rule engineering, false positive tuning log, MITRE coverage m
 
 ---
 
+## Systems Administration Projects
+
+### Project 01 — Hybrid Autopilot & Identity-Driven Device Provisioning
+**Status: In Progress**
+
+End-to-end zero-touch Windows device provisioning built on hybrid identity infrastructure: on-prem AD DS synchronized to Entra ID via Entra Connect, Windows Autopilot hybrid join through the Intune Connector for Active Directory, and Intune enrollment — with department-attributed dynamic groups automatically driving app assignment, configuration and compliance policies, and Conditional Access from the employee's first sign-in.
+
+Covers the full hybrid trust chain including sync timing dependencies, DC line-of-sight requirements, and deliberate break/fix engineering with documented diagnosis and resolution.
+
+**Demonstrates:** AD DS · Entra Connect · Hybrid Azure AD Join · Windows Autopilot · Microsoft Intune · Dynamic Groups · Conditional Access · PIM · PowerShell · Troubleshooting Methodology
+
+📂 [View Project](./projects/systems-administration/project-01-hybrid-autopilot-identity-provisioning/README.md)
+
+---
+
 ## Certifications
 
-Microsoft Certified: Security Operations Analyst (SC-200) · Microsoft 365 Administrator (MS-102) · Azure Fundamentals (AZ-900) · CompTIA Security+ · CSIS · CIOS · Network+ · A+ · ITIL 4 Foundation · ServiceNow Administrator
+Microsoft Certified: Security Operations Analyst (SC-200) · Identity and Access Administrator (SC-300) · Microsoft 365 Administrator (MS-102) · Azure Fundamentals (AZ-900) · CompTIA Security+ · CSIS · CIOS · Network+ · A+ · ITIL 4 Foundation · ServiceNow Administrator
 
-**In Progress:** Microsoft Identity and Access Administrator (SC-300) · CISSP
+**In Progress:** CISSP
 
 ---
 

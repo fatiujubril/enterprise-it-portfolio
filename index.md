@@ -24,6 +24,22 @@ This work reflects responsibilities commonly found in **SOC, IAM, Security Engin
 
 ## Featured Cybersecurity Projects
 
+### 🛡️ Project 03 — Privileged Identity & Cloud Security Program
+**Focus:** Zero Trust identity governance, cloud posture management, detection engineering, GRC
+
+An enterprise-grade Privileged Identity & Cloud Security Program built from scratch for a fictional 200-person regulated FinTech, covering identity governance, cloud security posture, detection engineering, and risk management end to end.
+
+Key outcomes:
+- Designed Zero Trust identity governance with Conditional Access, PIM, and Access Reviews
+- Raised Secure Score from 50% to 67% against CIS and MCSB benchmarks
+- Engineered 8 custom Sentinel detection rules mapped to MITRE ATT&CK
+- Delivered GRC artifacts: risk register, NIST CSF mapping, incident tabletop
+
+➡️ **View project:**  
+[Project 03 – Privileged Identity & Cloud Security Program](./projects/cybersecurity/project-03-privileged-identity-cloud-security-program/README.md)
+
+---
+
 ### 🔐 Project 02 — Conditional Access Failure & Identity Attack Simulation
 **Focus:** Identity misconfiguration, MFA bypass detection, incident response
 
@@ -37,7 +53,7 @@ Key outcomes:
 - Documented governance improvements to prevent recurrence
 
 ➡️ **View project:**  
-[Project 02 – Conditional Access Failure & Identity Attack Simulation](./projects/cybersecurity/project-02-Conditional-Access-Failure-Identity-Attack/README.md)
+[Project 02 – Conditional Access Failure & Identity Attack Simulation](./projects/cybersecurity/project-02-ca-misconfiguration-identity-attack/README.md)
 
 ---
 
@@ -60,7 +76,7 @@ Key outcomes:
 
 ## Systems & IT Engineering (Security-Aligned)
 
-In addition to security-focused projects, this portfolio will include **enterprise IT engineering work** that directly supports secure operations.
+In addition to security-focused projects, this portfolio includes **enterprise IT engineering work** that directly supports secure operations.
 
 These projects emphasize **how systems decisions impact security**, including:
 - Microsoft 365 tenant configuration and governance
@@ -69,9 +85,13 @@ These projects emphasize **how systems decisions impact security**, including:
 - Secure baseline configuration for users and services
 - Operational decisions that reduce identity and security risk
 
-This section is intentionally aligned with security outcomes and reflects real-world responsibilities in **IT Operations, Systems Engineering, and Hybrid IT/Security roles**.
+### 💻 Project 01 — Hybrid Autopilot & Identity-Driven Device Provisioning
+**Focus:** Zero-touch provisioning, hybrid identity, Intune, dynamic group-based access
 
-➡️ Systems & IT Engineering projects are currently in progress and will be added here.
+An end-to-end hybrid device provisioning build: on-prem AD DS synced to Entra ID via Entra Connect, Windows Autopilot hybrid join, and Intune enrollment — with department-driven dynamic groups automatically delivering apps, policies, and Conditional Access from first sign-in.
+
+➡️ **View project:**  
+[Systems Project 01 – Hybrid Autopilot & Identity-Driven Device Provisioning](./projects/systems-administration/project-01-hybrid-autopilot-identity-provisioning/README.md)
 
 ---
 
@@ -94,12 +114,14 @@ Each project is documented end-to-end and can be **walked through live during in
 
 - Location: Ontario, Canada  
 - Focus: Identity security, SOC operations, Microsoft 365  
-- Certifications: Security+, SC-200, MS-102, AZ-900  
+- Certifications: Security+, SC-200, SC-300, MS-102, AZ-900  
 
 ---
 
 ## How to Explore
 
-- Start with **Project 02** for identity and Conditional Access depth
+- Start with **Project 03** for privileged identity and cloud security program depth
+- Review **Project 02** for identity and Conditional Access failure analysis
 - Review **Project 01** for SOC-style investigation and response
+- See **Systems Project 01** for hybrid identity and device provisioning engineering
 - Dive into individual markdown files for technical detail and evidence
