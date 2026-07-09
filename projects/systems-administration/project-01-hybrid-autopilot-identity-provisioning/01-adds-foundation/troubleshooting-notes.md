@@ -63,20 +63,7 @@ Placing a public resolver directly on the adapter conflates these and breaks aut
 
 ### Evidence
 
-*Click any image to view full size.*
-
-**Symptom — eight DNS-Server-Service errors (408 / 404 / 407) appear immediately after the IP change**
-
-[![DNS errors after IP change](./screenshots/breakfix-01-dns-errors-after-ip-change.png)](./screenshots/breakfix-01-dns-errors-after-ip-change.png)
-
-**Fix — adapter DNS corrected to self-reference (10.0.0.5 / ::1)**
-
-[![Corrected self-referencing DNS](./screenshots/breakfix-02-dns-corrected-selfreference.png)](./screenshots/breakfix-02-dns-corrected-selfreference.png)
-
-**Verification — dcdiag /test:dns passing at server and enterprise level**
-
-[![dcdiag DNS test passed](./screenshots/breakfix-03-dcdiag-dns-passed.png)](./screenshots/breakfix-03-dcdiag-dns-passed.png)
-
-**Verification — external resolution confirmed working through the forwarder**
-
-[![External resolution working](./screenshots/breakfix-04-external-resolution-working.png)](./screenshots/breakfix-04-external-resolution-working.png)
+- [Symptom — eight DNS-Server-Service errors (408 / 404 / 407) after the IP change](./screenshots/breakfix-01-dns-errors-after-ip-change.png)
+- [Fix — adapter DNS corrected to self-reference (10.0.0.5 / ::1)](./screenshots/breakfix-02-dns-corrected-selfreference.png)
+- [Verification — dcdiag /test:dns passing at server and enterprise level](./screenshots/breakfix-03-dcdiag-dns-passed.png)
+- [Verification — external resolution confirmed working through the forwarder](./screenshots/breakfix-04-external-resolution-working.png)

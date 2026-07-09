@@ -70,35 +70,13 @@ Get-ADUser -Filter * -SearchBase "OU=Lab-Users,OU=Lab-OUs,DC=corp,DC=lab" -Prope
 
 ## Evidence
 
-*Click any image to view full size.*
-
-**AD DS, DNS, and DHCP roles installed on DC01 (static IP 10.0.0.5)**
-
-[![Server Manager showing AD DS role installed](./screenshots/01-server-manager-adds-role.png)](./screenshots/01-server-manager-adds-role.png)
-
-**corp.lab directory tree with the Lab-OUs structure**
-
-[![AD Users and Computers domain overview](./screenshots/02-domain-overview-aduc.png)](./screenshots/02-domain-overview-aduc.png)
-
-**Tiered OU hierarchy — Admins / Computers / Servers / Users**
-
-[![Lab-OUs organizational unit structure](./screenshots/03-ou-structure.png)](./screenshots/03-ou-structure.png)
-
-**Test users created with department attributes**
-
-[![PowerShell verification table of test users](./screenshots/04-test-users-created.png)](./screenshots/04-test-users-created.png)
-
-**User Organization tab confirming the Department field is populated**
-
-[![User department attribute in AD](./screenshots/05-user-department-attribute.png)](./screenshots/05-user-department-attribute.png)
-
-**Static IP, gateway, and self-referencing DNS on the adapter**
-
-[![Static IP and DNS configuration](./screenshots/06-static-ip-dns-config.png)](./screenshots/06-static-ip-dns-config.png)
-
-**DNS forwarders (8.8.8.8 / 8.8.4.4) for external resolution**
-
-[![DNS forwarders configuration](./screenshots/07-dns-forwarders.png)](./screenshots/07-dns-forwarders.png)
+- [Server Manager — AD DS, DNS, and DHCP roles installed on DC01 (static IP 10.0.0.5)](./screenshots/01-server-manager-adds-role.png)
+- [AD Users and Computers — corp.lab directory tree with the Lab-OUs structure](./screenshots/02-domain-overview-aduc.png)
+- [Tiered OU hierarchy — Admins / Computers / Servers / Users](./screenshots/03-ou-structure.png)
+- [Test users created with department attributes](./screenshots/04-test-users-created.png)
+- [User Organization tab confirming the Department field is populated](./screenshots/05-user-department-attribute.png)
+- [Static IP, gateway, and self-referencing DNS on the adapter](./screenshots/06-static-ip-dns-config.png)
+- [DNS forwarders (8.8.8.8 / 8.8.4.4) for external resolution](./screenshots/07-dns-forwarders.png)
 
 ---
 
