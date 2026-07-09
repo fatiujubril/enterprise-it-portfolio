@@ -6,6 +6,8 @@
 
 After changing the domain controller's static IP address (from an initial `10.10.10.10` to `10.0.0.5` to align with the host subnet and add a default gateway), the DNS Server service began generating errors. Server Manager's events pane, which had previously shown zero errors, showed eight new `Microsoft-Windows-DNS-Server-Service` errors — event IDs 404, 407, and 408 — all timestamped immediately after the IP change.
 
+📸 [Evidence — eight DNS-Server-Service errors (408 / 404 / 407) after the IP change](./screenshots/breakfix-01-dns-errors-after-ip-change.png)
+
 ### Root Cause
 
 During the IP reconfiguration, the network adapter's DNS setting was left pointing at an external public resolver (`8.8.8.8`) rather than at the domain controller itself. A domain controller **is** the authoritative DNS server for its own domain (`corp.lab`). When its adapter DNS points to an external resolver, the DC attempts to resolve its own domain records against a server that has no knowledge of `corp.lab`, and the DNS Server service fails to operate correctly — producing the 404/407/408 errors.
@@ -21,6 +23,8 @@ Two-part fix that separates internal and external resolution:
    ```powershell
    Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("10.0.0.5","127.0.0.1")
    ```
+
+   📸 [Evidence — adapter DNS corrected to self-reference (10.0.0.5 / ::1)](./screenshots/breakfix-02-dns-corrected-selfreference.png)
 
 2. **DNS forwarders added for external resolution.** Rather than placing a public resolver on the adapter (the original mistake), public DNS servers were added as **forwarders** inside the DNS console (DC01 Properties → Forwarders). This is the correct mechanism: the DC resolves internal records itself and forwards any query it is not authoritative for (such as Microsoft cloud endpoints) out to the forwarders.
 
@@ -44,6 +48,8 @@ Two-part fix that separates internal and external resolution:
 - DC01 passed test DNS
 - corp.lab passed test DNS (across ForestDnsZones, DomainDnsZones, Schema, Configuration partitions)
 
+📸 [Evidence — dcdiag /test:dns passing at server and enterprise level](./screenshots/breakfix-03-dcdiag-dns-passed.png)
+
 External resolution confirmed working through the forwarder:
 
 ```powershell
@@ -51,6 +57,8 @@ Resolve-DnsName login.microsoftonline.com
 ```
 
 Returning valid addresses confirmed the DC can reach the Microsoft endpoints that Entra Connect requires in Phase 2. No new DNS-Server-Service errors were generated after the fix.
+
+📸 [Evidence — external resolution confirmed working through the forwarder](./screenshots/breakfix-04-external-resolution-working.png)
 
 ### Lesson / Takeaway
 
@@ -60,10 +68,3 @@ The correct DNS configuration for a domain controller separates two jobs:
 - **DNS forwarder → public resolver** — so the DC resolves everything else by forwarding.
 
 Placing a public resolver directly on the adapter conflates these and breaks authoritative resolution for the domain. This is a common configuration error and a frequent root cause of hybrid identity failures that surface later in confusing ways — Entra Connect and hybrid join both depend on clean DNS, so this was resolved and verified before proceeding.
-
-### Evidence
-
-- [Symptom — eight DNS-Server-Service errors (408 / 404 / 407) after the IP change](./screenshots/breakfix-01-dns-errors-after-ip-change.png)
-- [Fix — adapter DNS corrected to self-reference (10.0.0.5 / ::1)](./screenshots/breakfix-02-dns-corrected-selfreference.png)
-- [Verification — dcdiag /test:dns passing at server and enterprise level](./screenshots/breakfix-03-dcdiag-dns-passed.png)
-- [Verification — external resolution confirmed working through the forwarder](./screenshots/breakfix-04-external-resolution-working.png)

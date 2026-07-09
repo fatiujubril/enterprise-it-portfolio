@@ -36,9 +36,10 @@ The domain controller runs as a virtual machine on a Hyper-V host. The host is t
 ## Build Steps
 
 1. Provisioned Windows Server 2022 VM, assigned a static IP, and renamed the host to `DC01` prior to promotion.
-2. Installed the AD DS role and promoted the server to a domain controller for a new forest, `corp.lab`, with DNS installed during promotion.
-3. Created the `Lab-OUs` tiered organizational unit structure.
-4. Created department-attributed test user accounts to serve as the identities that will later drive dynamic group membership.
+2. Installed the AD DS role and promoted the server to a domain controller for a new forest, `corp.lab`, with DNS installed during promotion. 📸 [Server Manager — AD DS, DNS, and DHCP roles on DC01 (static IP 10.0.0.5)](./screenshots/01-server-manager-adds-role.png)
+3. Configured the network adapter with a static IP and self-referencing DNS, plus DNS forwarders for external resolution. 📸 [Static IP and self-referencing DNS](./screenshots/06-static-ip-dns-config.png) · 📸 [DNS forwarders (8.8.8.8 / 8.8.4.4)](./screenshots/07-dns-forwarders.png)
+4. Created the `Lab-OUs` tiered organizational unit structure. 📸 [corp.lab directory tree](./screenshots/02-domain-overview-aduc.png) · 📸 [Tiered OU hierarchy](./screenshots/03-ou-structure.png)
+5. Created department-attributed test user accounts to serve as the identities that will later drive dynamic group membership.
 
 ---
 
@@ -55,6 +56,8 @@ Three department-attributed users were created, plus one intentionally attribute
 
 The `department` attribute is the value Entra Connect synchronizes and that dynamic group rules evaluate in Phase 5. John Doe is deliberately left without a department to validate that dynamic membership rules are scoped correctly and do not inadvertently capture every user.
 
+📸 [Test users created with department attributes](./screenshots/04-test-users-created.png) · 📸 [User Organization tab confirming Department field populated](./screenshots/05-user-department-attribute.png)
+
 ---
 
 ## Verification
@@ -65,18 +68,6 @@ Confirmed via PowerShell that all users exist in the target OU with correct depa
 Get-ADUser -Filter * -SearchBase "OU=Lab-Users,OU=Lab-OUs,DC=corp,DC=lab" -Properties Department |
     Select-Object Name, SamAccountName, UserPrincipalName, Department | Format-Table -AutoSize
 ```
-
----
-
-## Evidence
-
-- [Server Manager — AD DS, DNS, and DHCP roles installed on DC01 (static IP 10.0.0.5)](./screenshots/01-server-manager-adds-role.png)
-- [AD Users and Computers — corp.lab directory tree with the Lab-OUs structure](./screenshots/02-domain-overview-aduc.png)
-- [Tiered OU hierarchy — Admins / Computers / Servers / Users](./screenshots/03-ou-structure.png)
-- [Test users created with department attributes](./screenshots/04-test-users-created.png)
-- [User Organization tab confirming the Department field is populated](./screenshots/05-user-department-attribute.png)
-- [Static IP, gateway, and self-referencing DNS on the adapter](./screenshots/06-static-ip-dns-config.png)
-- [DNS forwarders (8.8.8.8 / 8.8.4.4) for external resolution](./screenshots/07-dns-forwarders.png)
 
 ---
 
