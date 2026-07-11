@@ -62,7 +62,7 @@ The device appeared in Entra ID as **Microsoft Entra hybrid joined**, with a Dev
 
 ## Hardening — Excluding Servers and Domain Controllers
 
-Enabling hybrid join surfaced an unintended consequence that required a hardening fix. Because hybrid join is configured domain-wide via the SCP, **every** domain-joined Windows machine — including the domain controller and the sync server — attempted to register to Entra ID. This is documented in full in `troubleshooting-notes.md`, and resolved by scoping device registration to client OUs only via Group Policy, following Microsoft's guidance that domain controllers must never be device-registered.
+Enabling hybrid join surfaced an unintended consequence that required a hardening fix. Because hybrid join is configured domain-wide via the SCP, **every** domain-joined Windows machine — including the domain controller and the sync server — attempted to register to Entra ID. This is documented in full in [`troubleshooting-notes.md`](./troubleshooting-notes.md), and resolved by scoping device registration to client OUs only via Group Policy, following Microsoft's guidance that domain controllers must never be device-registered.
 
 The end state: only the intended client (`WIN11-USER01`) holds a cloud device identity; DC01 and SYNC01 remain plain domain members.
 
