@@ -34,7 +34,7 @@ The Entra Connect wizard was re-run on SYNC01 and the **Configure device options
 
 📸 [Configure device options task](./screenshots/01-connect-device-options.png) · 📸 [Hybrid Azure AD join selected](./screenshots/02-hybrid-join-selected.png)
 
-The SCP was configured for the `corp.lab` forest, with **Authentication Service set to Microsoft Entra ID** — the modern cloud-auth path, not legacy AD FS federation. This is the correct choice for a Password Hash Synchronization environment: 📸 [SCP configuration](./screenshots/03-scp-config-forest.png)
+The SCP was configured for the `corp.lab` forest, with **Authentication Service set to Microsoft Entra ID** — the modern cloud-auth path, not legacy AD FS federation. This is the correct choice for a [Password Hash Synchronization](../02-entra-connect-sync/auth-method-decision.md) environment: 📸 [SCP configuration](./screenshots/03-scp-config-forest.png)
 
 Configuration completed successfully: 📸 [Device options complete](./screenshots/04-device-options-complete.png)
 
@@ -71,3 +71,7 @@ The end state: only the intended client (`WIN11-USER01`) holds a cloud device id
 ## Outcome
 
 A Windows 11 client is now hybrid Azure AD joined — domain-joined on-premises and registered in Entra ID under a real synced user — while infrastructure servers are correctly excluded from device registration. The device now has the cloud identity required for Intune enrollment, Autopilot, and Conditional Access in the phases ahead.
+
+---
+
+[← Back to Phase 2 — Entra Connect Sync](../02-entra-connect-sync/README.md) | [Project overview](../README.md) | [Continue to Phase 4 — Windows Autopilot →](../04-autopilot-hybrid-profile/README.md)

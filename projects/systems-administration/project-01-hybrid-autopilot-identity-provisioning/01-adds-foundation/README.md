@@ -74,3 +74,7 @@ Get-ADUser -Filter * -SearchBase "OU=Lab-Users,OU=Lab-OUs,DC=corp,DC=lab" -Prope
 ## Outcome
 
 A healthy domain controller with a clean tiered directory and department-attributed identities, verified via `dcdiag`. This is the on-premises source of truth that Phase 2 synchronizes to Entra ID.
+
+---
+
+[← Project overview](../README.md) | [Continue to Phase 2 — Entra Connect Sync →](../02-entra-connect-sync/README.md)

@@ -106,3 +106,7 @@ Together these demonstrate that identity synchronization is not just a mechanica
 ## Outcome
 
 On-premises identities are now synchronized to Entra ID with routable `@fjlab.ca` UPNs and correct department attributes, on a production-style topology with least-privilege accounts throughout. This synchronized identity foundation is what Phase 3 (hybrid Azure AD join) and Phase 5 (dynamic group-driven provisioning) build upon.
+
+---
+
+[← Back to Phase 1 — ADDS Foundation](../01-adds-foundation/README.md) | [Project overview](../README.md) | [Continue to Phase 3 — Hybrid Azure AD Join →](../03-hybrid-join/README.md)
