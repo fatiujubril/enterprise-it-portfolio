@@ -12,15 +12,15 @@ This project builds the complete hybrid identity chain from the ground up in a c
 
 **From the employee's perspective** — they unbox a device, connect to Wi-Fi, sign in with their work account, and a few minutes later have a fully configured machine with the right apps and access for their role.
 
-![User experience flow](./architecture/user-experience-flow.png)
+![User experience flow](./architecture/user-experience-flow.svg)
 
 **Behind the scenes** — a chain of on-premises and cloud services collaborate: the device's hardware identity is matched to the tenant, the user is authenticated, the device is domain-joined and cloud-registered, and the user's department drives everything that gets installed and granted.
 
-![Background process flow](./architecture/background-process-flow.png)
+![Background process flow](./architecture/background-process-flow.svg)
 
 **The full trust chain** — on-premises Active Directory is the source of truth, synchronized to Entra ID, which drives device provisioning and identity-based governance:
 
-![Hybrid trust chain architecture](./architecture/hybrid-trust-chain.png)
+![Hybrid trust chain architecture](./architecture/hybrid-trust-chain.svg)
 
 ---
 
