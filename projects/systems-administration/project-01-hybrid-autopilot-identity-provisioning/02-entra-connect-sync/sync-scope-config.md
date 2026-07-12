@@ -42,3 +42,7 @@ With only four users, OU filtering alone provides the right level of control. In
 ## Note on privileged identity synchronization
 
 Excluding admin accounts from sync is one approach to protecting privileged identities in a hybrid environment. A complementary or alternative approach in larger environments is to keep cloud administrative identities entirely cloud-native (created directly in Entra ID, never synced from on-prem), so that a compromise of on-premises AD cannot directly yield cloud administrative access. The `cloudadmin@fjlab.ca` account in this build is exactly such a cloud-native admin — created in the cloud, not synced from `corp.lab`.
+
+---
+
+[← Back to Phase 2 README](./README.md) | [Project overview](../README.md)

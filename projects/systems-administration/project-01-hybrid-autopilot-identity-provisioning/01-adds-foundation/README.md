@@ -29,7 +29,7 @@ The domain controller runs as a virtual machine on a Hyper-V host. The host is t
 
 **Static IP and self-referencing DNS.** A domain controller must have a static IP and must point its DNS at itself, because the DC *is* the authoritative DNS server for the domain. Internet name resolution is handled through DNS forwarders configured inside the DNS console, not by placing public DNS servers on the network adapter. This distinction is important and is the root of the break/fix documented in `troubleshooting-notes.md`.
 
-**Tiered OU structure.** Organizational units are separated by function — `Lab-Admins`, `Lab-Computers`, `Lab-Servers`, `Lab-Users` — nested under a parent `Lab-OUs`. This separation supports scoped sync filtering in Phase 2 (only the required OUs are synchronized) and reflects an administrative-tiering approach rather than a flat directory.
+**Tiered OU structure.** Organizational units are separated by function — `Lab-Admins`, `Lab-Computers`, `Lab-Servers`, `Lab-Users` — nested under a parent `Lab-OUs`. This separation supports scoped sync filtering in Phase 2 (only the required OUs are synchronized) and reflects an administrative-tiering approach rather than a flat directory. See [ou-structure.md](./ou-structure.md).
 
 ---
 
@@ -74,6 +74,14 @@ Get-ADUser -Filter * -SearchBase "OU=Lab-Users,OU=Lab-OUs,DC=corp,DC=lab" -Prope
 ## Outcome
 
 A healthy domain controller with a clean tiered directory and department-attributed identities, verified via `dcdiag`. This is the on-premises source of truth that Phase 2 synchronizes to Entra ID.
+
+---
+
+## Break/fix log
+
+| # | Symptom | Root cause | Details |
+|---|---|---|---|
+| Case 01 | DNS Server service errors (event IDs 404/407/408) immediately after changing the DC's static IP | Adapter DNS left pointing at an external public resolver instead of the DC itself — external resolution belongs in DNS forwarders, not on the adapter | [troubleshooting-notes.md](./troubleshooting-notes.md) |
 
 ---
 

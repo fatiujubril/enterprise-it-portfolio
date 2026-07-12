@@ -62,9 +62,9 @@ The device appeared in Entra ID as **Microsoft Entra hybrid joined**, with a Dev
 
 ## Hardening — Excluding Servers and Domain Controllers
 
-Enabling hybrid join surfaced an unintended consequence that required a hardening fix. Because hybrid join is configured domain-wide via the SCP, **every** domain-joined Windows machine — including the domain controller and the sync server — attempted to register to Entra ID. This is documented in full in [`troubleshooting-notes.md`](./troubleshooting-notes.md), and resolved by scoping device registration to client OUs only via Group Policy, following Microsoft's guidance that domain controllers must never be device-registered.
+Enabling hybrid join surfaced an unintended consequence that required a hardening fix. Because hybrid join is configured domain-wide via the SCP, **every** domain-joined Windows machine — including the domain controller and the sync server — attempted to register to Entra ID. This is documented in full in [Case 01](./troubleshooting-case-01-servers-registered.md), and resolved by scoping device registration to client OUs only via Group Policy, following Microsoft's guidance that domain controllers must never be device-registered.
 
-The remediation had a sequel: days later the server records **reappeared** in Entra — not because the GPO failed, but because the original cleanup missed a third place where registration state lives (the `userCertificate` attribute on the AD computer objects, which the sync engine re-exported). The differential diagnosis and completed fix are documented as **Case 02** in [`troubleshooting-notes.md`](./troubleshooting-notes.md).
+The remediation had a sequel: days later the server records **reappeared** in Entra — not because the GPO failed, but because the original cleanup missed a third place where registration state lives (the `userCertificate` attribute on the AD computer objects, which the sync engine re-exported). The differential diagnosis and completed fix are documented in [Case 02](./troubleshooting-case-02-usercertificate-resync.md).
 
 The end state: only the intended client (`WIN11-USER01`) holds a cloud device identity; DC01 and SYNC01 remain plain domain members — verified to persist across sync cycles.
 
@@ -73,6 +73,15 @@ The end state: only the intended client (`WIN11-USER01`) holds a cloud device id
 ## Outcome
 
 A Windows 11 client is now hybrid Azure AD joined — domain-joined on-premises and registered in Entra ID under a real synced user — while infrastructure servers are correctly excluded from device registration. The device now has the cloud identity required for Intune enrollment, Autopilot, and Conditional Access in the phases ahead.
+
+---
+
+## Break/fix log
+
+| # | Symptom | Root cause | Details |
+|---|---|---|---|
+| Case 01 | DC01 and SYNC01 unintentionally registered as Entra devices after hybrid join was enabled | SCP is forest-wide and `Automatic-Device-Join` runs on every domain-joined machine, servers included; registration needed GPO scoping (including a disabled-link diagnostic) | [troubleshooting-case-01-servers-registered.md](./troubleshooting-case-01-servers-registered.md) |
+| Case 02 | The same server records reappeared in Entra days after remediation | Original cleanup missed the third place registration state lives — the stale `userCertificate` AD attribute, re-exported by the sync engine | [troubleshooting-case-02-usercertificate-resync.md](./troubleshooting-case-02-usercertificate-resync.md) |
 
 ---
 

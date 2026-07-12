@@ -40,7 +40,7 @@ The project is built in sequential phases. Each phase folder contains its own RE
 | [Phase 2 — Entra Connect Sync](./02-entra-connect-sync/README.md) | Directory synchronization, PHS, OU scoping, least-privilege accounts | Complete |
 | [Phase 3 — Hybrid Azure AD Join](./03-hybrid-join/README.md) | Device dual identity, SCP, server-registration hardening | Complete |
 | [Phase 4 — Windows Autopilot](./04-autopilot-hybrid-profile/README.md) | Intune Connector, hardware hash, hybrid deployment profile | In Progress |
-| [Phase 5 — Dynamic Groups & Assignment](./05-dynamic-groups-and-assignment/README.md) | Department-driven apps, policies, Conditional Access | Planned |
+| [Phase 5 — Dynamic Groups & Assignment](./05-dynamic-groups-and-assignment/README.md) | Department-driven apps, policies, Conditional Access | In Progress |
 | [Phase 6 — PIM for Admin Roles](./06-pim-for-admin-roles/README.md) | Just-in-time privileged access | Planned |
 | [Phase 7 — Test & Break/Fix](./07-test-and-breakfix/README.md) | Full flow validation, timing analysis, failure injection | Planned |
 
@@ -53,7 +53,7 @@ Each of these is documented in depth in its phase folder:
 - **Hybrid over cloud-native** — to demonstrate the full identity chain and reflect real enterprise environments.
 - **Password Hash Synchronization** — the modern, resilient default that also enables cloud security features. See [auth-method-decision.md](./02-entra-connect-sync/auth-method-decision.md).
 - **Least privilege throughout** — Hybrid Identity Administrator (not Global Admin) for the cloud admin, a dedicated connector account (not Domain Admin) for sync, and privileged OUs excluded from synchronization. See [sync-scope-config.md](./02-entra-connect-sync/sync-scope-config.md).
-- **Device registration scoped to clients** — servers and domain controllers deliberately excluded from hybrid join, following the principle that device registration is a client-endpoint feature. See [Phase 3 troubleshooting notes](./03-hybrid-join/troubleshooting-notes.md).
+- **Device registration scoped to clients** — servers and domain controllers deliberately excluded from hybrid join, following the principle that device registration is a client-endpoint feature. See [Phase 3, Case 01](./03-hybrid-join/troubleshooting-case-01-servers-registered.md).
 
 ---
 
@@ -75,10 +75,16 @@ All infrastructure runs as virtual machines on a Hyper-V host. The host is the p
 Real problems encountered and resolved during the build — the diagnostic depth is documented per phase:
 
 - **DNS service failure after a DC IP change** — diagnosed via event log, root-caused to a broken self-reference, resolved with proper forwarder configuration. [Phase 1](./01-adds-foundation/troubleshooting-notes.md)
-- **Servers and DCs unintentionally registering as Entra devices** — root-caused to domain-wide hybrid join, resolved with correctly-scoped Group Policy (including a subtle disabled-link diagnostic). [Phase 3](./03-hybrid-join/troubleshooting-notes.md)
+- **Servers and DCs unintentionally registering as Entra devices** — root-caused to domain-wide hybrid join, resolved with correctly-scoped Group Policy (including a subtle disabled-link diagnostic). [Phase 3, Case 01](./03-hybrid-join/troubleshooting-case-01-servers-registered.md)
+- **The same server records reappearing days after remediation** — differential diagnosis proved the GPO held; root cause was a stale `userCertificate` AD attribute being re-exported by the sync engine. Hybrid registration state lives in three places, and remediation is only complete when all three are cleaned. [Phase 3, Case 02](./03-hybrid-join/troubleshooting-case-02-usercertificate-resync.md)
+- **Intune Connector enrollment failing with a generic sign-in error** — root-caused to the non-obvious licensing half of the enrollment prerequisite (role AND license), diagnosed through an ordered candidate list. [Phase 4](./04-autopilot-hybrid-profile/troubleshooting-notes.md)
 
 ---
 
 ## Outcome
 
 A working hybrid identity environment where a device can be provisioned end-to-end with zero touch, and where a user's department attribute — set once in on-premises Active Directory — flows through synchronization to drive their group membership, application assignment, configuration policies, and conditional access in the cloud. The project demonstrates not just the mechanics of each Microsoft technology, but the architectural judgment and troubleshooting discipline required to make them work together.
+
+---
+
+[← Back to portfolio root](../../../README.md)

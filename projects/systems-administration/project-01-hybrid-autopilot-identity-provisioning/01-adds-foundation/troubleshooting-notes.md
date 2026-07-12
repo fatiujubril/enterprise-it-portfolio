@@ -68,3 +68,7 @@ The correct DNS configuration for a domain controller separates two jobs:
 - **DNS forwarder → public resolver** — so the DC resolves everything else by forwarding.
 
 Placing a public resolver directly on the adapter conflates these and breaks authoritative resolution for the domain. This is a common configuration error and a frequent root cause of hybrid identity failures that surface later in confusing ways — Entra Connect and hybrid join both depend on clean DNS, so this was resolved and verified before proceeding.
+
+---
+
+[← Back to Phase 1 README](./README.md) | [Project overview](../README.md)

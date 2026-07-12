@@ -26,3 +26,7 @@ corp.lab
 ## Design Note
 
 This structure is intentionally simple for a lab but mirrors the *shape* of a production tiered model. In a real environment, the tiering would typically extend further (for example, Tier 0 / Tier 1 / Tier 2 administrative separation for privileged access management), but the principle — separating objects by function to enable scoped sync, scoped policy, and scoped delegation — is the same.
+
+---
+
+[← Back to Phase 1 README](./README.md) | [Project overview](../README.md)

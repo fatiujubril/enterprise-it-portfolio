@@ -37,3 +37,7 @@ The decision tree an engineer should be able to articulate:
 3. **Otherwise → PHS** — the simplest, most resilient, most feature-enabling default.
 
 For this build, the answer to (1) and (2) is no, so PHS is the correct choice — and it actively enables the leaked-credential detection capability that complements the security posture the portfolio demonstrates.
+
+---
+
+[← Back to Phase 2 README](./README.md) | [Project overview](../README.md)
