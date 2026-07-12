@@ -41,18 +41,49 @@ The wizard performs its account checks behind the embedded sign-in flow and surf
 
 ---
 
-## Observation (not a failure) — Autopilot profile assignment latency
+## breakfix-02 — Autopilot profile assignment stuck in "Assigning" for over 20 hours
 
-After creating the deployment profile and assigning it to `AP-Devices-All`, the device's profile status moved **Not assigned → Pending** and remained Pending for an extended period. This is documented service behavior, not a fault: profile assignment is an asynchronous background job between Intune and the Windows Autopilot deployment service, and can take minutes to hours (longest on a tenant's first-ever assignment).
+### Symptom
 
-Working diagnostic sequence before assuming a stuck state:
+After creating the deployment profile and assigning it to `AP-Devices-All`, the device's profile status moved **Not assigned → Pending → Assigning 'APHybridUserDriven'** — and then stopped. The device detail pane showed a Date assigned timestamp more than 20 hours old with the status still not reaching Assigned. Normal assignment completes in minutes to about an hour; a day is a stuck state, not latency.
 
-1. Confirm group membership actually evaluated (the assignment table on any profile targeting the group shows the device count — here it showed `1 devices`, ruling out a membership problem).
-2. Use the **Sync** button on the Autopilot devices blade to force service-side processing (then blocked for ~15 minutes between syncs).
-3. Cross-check from the profile side (profile → assigned devices) — the profile side often reflects the attachment before the device list column updates.
-4. Only if still Pending after many hours: delete and re-import the Autopilot device to reset the assignment machinery (last resort — premature re-imports cause more problems than they solve).
+📸 [Stuck state — Assigning, with a Date assigned timestamp from the previous day](./screenshots/breakfix-02-profile-stuck-assigning.png)
 
-Key rule: **do not run the OOBE test while the status is Pending.** The profile is not yet available to the device; the run produces a vanilla consumer OOBE and looks like a total Autopilot failure when nothing is actually wrong.
+### Diagnosis
+
+Profile assignment is an **entirely cloud-side transaction** between Intune and the Windows Autopilot deployment service, executed against the device's registration record. The physical device is not a participant — it can be powered off or sealed in a box; only at OOBE does the device download whatever profile the service has already attached. So the diagnosis targets the record and the services, never the device.
+
+The candidate list worked through, in order:
+
+1. **Dynamic group membership** — ruled out: assignment tables on profiles targeting `AP-Devices-All` showed `1 devices`, and the group's member list contained the device's Autopilot object.
+2. **Forced service sync** — the Sync button on the Autopilot devices blade (rate-limited to ~15-minute intervals) was used multiple times across the stuck window with no effect.
+3. **Profile-side cross-check** — the profile showed the device attached; the status column simply never progressed.
+4. **Service health** — M365 admin center → Health → Service health showed Intune fully healthy; no Autopilot advisory to explain the stall.
+5. **Hash validity (false alarm worth recording)** — inspection of the import CSV raised a scare: the hardware hash ended in a long run of `AAAA...` characters. This is **normal, not corruption**: the 4K hardware hash is a fixed-size binary structure, unpopulated fields are zero-filled, and zero bytes encode as `A` in Base64. A VM has far fewer populated hardware fields than OEM hardware, hence more padding. The populated portion contained genuine identity data (CPU model, virtual disk, vTPM version, UEFI release, serial), and Intune validates hashes at import — a malformed hash is rejected, not silently accepted.
+
+With the record's inputs verified and the services healthy, the conclusion was corrupted/stalled assignment state on the registration record itself — for which the documented remediation is to reset the record.
+
+### Resolution
+
+1. **Deleted the device** from Windows Autopilot devices — then **waited until it fully disappeared** from the list before proceeding. Deletion is slow and processes in the background; re-importing while the old record still exists simply matches the existing hash and lands on the same stuck record, resetting nothing. (This also removes the associated placeholder Entra device object.)
+2. **Re-imported the same hash CSV.** Nothing about the hardware had changed, so no re-capture was needed.
+3. The re-import created a fresh registration with a **new ZTDId**; `AP-Devices-All` re-evaluated the new object in automatically (the dynamic rule matches any ZTDId, no group edits needed), and assignment re-ran against clean state.
+
+### Verification
+
+Profile status progressed **Not assigned → Pending → Assigned** on the normal timeline after the re-import — the same machinery that had hung for 20+ hours completed without intervention once the record was fresh.
+
+📸 [Resolved — profile status Assigned after delete and re-import](./screenshots/15-autopilot-device-profile-assigned.png)
+
+### Takeaway
+
+**Autopilot profile assignment is a cloud-side transaction against the registration record, and that record's assignment state can wedge; when membership, sync, and service health all check out, delete-and-reimport is the reset — but only if the deletion fully completes before the re-import.**
+
+Supporting lessons:
+
+1. **The three assignment states are Not assigned → Pending → Assigning/Assigned, and the OOBE test must not run until Assigned.** A device provisioned while the profile is unattached gets vanilla consumer OOBE and looks like a total Autopilot failure when nothing is wrong.
+2. **Know what a healthy hardware hash looks like before suspecting it.** Long Base64 `A` runs are zero-padding in a fixed-size structure — expected on VMs — not evidence of corruption. Chasing the hash would have been a dead end; recognizing the padding kept the diagnosis on track.
+3. **Not every incident yields a satisfying root cause.** The honest conclusion is "service-side assignment state stalled; re-registration reset it." Documenting the *elimination process* (membership → sync → profile-side → service health → hash validity) is what demonstrates the diagnostic skill — and is what makes "we reset it" a defensible resolution rather than a shrug.
 
 ---
 

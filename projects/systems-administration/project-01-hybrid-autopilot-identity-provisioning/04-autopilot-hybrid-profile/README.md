@@ -197,6 +197,7 @@ Known watch-item already banked for Phase 5: build dynamic user groups and app a
 | # | Symptom | Root cause | Details |
 |---|---|---|---|
 | breakfix-01 | Connector wizard sign-in fails with generic "Something went wrong — An unanticipated error occurred" | Enrolling admin met the *role* prerequisite but not the *license* prerequisite (Intune license missing / still propagating) | [troubleshooting-notes.md](./troubleshooting-notes.md) |
+| breakfix-02 | Autopilot profile status stuck in "Assigning" for over 20 hours | Cloud-side assignment state stalled on the registration record (group membership, forced sync, service health, and hash validity all verified clean); resolved by full device deletion and hash re-import | [troubleshooting-notes.md](./troubleshooting-notes.md) |
 
 ---
 
