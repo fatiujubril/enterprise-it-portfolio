@@ -2,7 +2,7 @@
 
 This phase builds the complete Windows Autopilot infrastructure for **user-driven hybrid Entra join**: a sealed device runs OOBE, domain-joins to `corp.lab` without ever pre-touching a domain controller, hybrid-registers to Entra ID, enrolls in Intune, and is gated by an Enrollment Status Page until provisioning completes.
 
-It is also the phase where the identity groundwork from Phases 1–3 gets consumed: the [OU structure](../01-adds-foundation/ou-structure.md) receives the Autopilot computer objects, the [sync scope](../02-entra-connect-sync/sync-scope-config.md) carries the device and user identities to the cloud, and the [hybrid join plumbing](../03-hybrid-azure-ad-join/README.md) is what the Autopilot profile triggers at scale.
+It is also the phase where the identity groundwork from Phases 1–3 gets consumed: the [OU structure](../01-adds-foundation/ou-structure.md) receives the Autopilot computer objects, the [sync scope](../02-entra-connect-sync/sync-scope-config.md) carries the device and user identities to the cloud, and the [hybrid join plumbing](../03-hybrid-join/README.md) is what the Autopilot profile triggers at scale.
 
 ---
 
@@ -200,4 +200,4 @@ Known watch-item already banked for Phase 5: build dynamic user groups and app a
 
 ---
 
-[← Back to Phase 3](../03-hybrid-azure-ad-join/README.md) | [Project overview](../README.md) | [Continue to Phase 5 →](../05-dynamic-groups-assignment/README.md)
+[← Back to Phase 3](../03-hybrid-join/README.md) | [Project overview](../README.md) | [Continue to Phase 5 →](../05-dynamic-groups-and-assignment/README.md)
