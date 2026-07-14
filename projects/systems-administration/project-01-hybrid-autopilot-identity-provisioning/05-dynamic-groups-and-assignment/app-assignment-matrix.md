@@ -18,7 +18,7 @@ This single assignment demonstrates the **user track** delivering payload, and i
 
 - The app is targeted at a **user group** (`DYN-Users-Finance`), not a device group. So it follows Aisha to any device she signs into — it is not tied to a particular machine.
 - **Install behavior is System**, even though the assignment is user-targeted. Targeting decides *who triggers* the install; install behavior decides *what security context executes* it. Aisha — a Standard user with no local admin — signing in causes a machine-wide install she could not perform herself. Intune acts as the privilege broker: it installs with system rights on behalf of a user who lacks them. This is a clean illustration of least-privilege end-user design coexisting with full application delivery.
-- Delivery is via the **Intune Management Extension**, which handles Win32 and Store-new apps. On a freshly provisioned device the IME installs itself first, then processes the app queue — so a user-targeted app typically lands shortly *after* the desktop appears rather than during the Enrollment Status Page. (This is confirmed in the Phase 7 full-flow test, where Acrobat installed post-desktop and was verified both on-device and in the admin-side install report.)
+- Delivery is via the **Intune Management Extension**, which handles Win32 and Store-new apps. On a freshly provisioned device the IME installs itself first, then processes the app queue — so a user-targeted app typically lands shortly *after* the desktop appears rather than during the Enrollment Status Page. (This is confirmed in the Phase 6 full-flow test, where Acrobat installed post-desktop and was verified both on-device and in the admin-side install report.)
 
 ## Assignment types (for reference)
 

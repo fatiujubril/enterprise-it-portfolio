@@ -1,6 +1,6 @@
 # Conditional Access Policies — Design (Deferred to Post-Provisioning)
 
-> **Status: designed, not yet implemented.** Conditional Access was deliberately deferred until after a clean end-to-end Autopilot provisioning run (completed in Phase 7). This document records the design and the ordering decision; policy build-out and evidence will be added when the policies are created.
+> **Status: designed, not yet implemented.** Conditional Access was deliberately deferred until after a clean end-to-end Autopilot provisioning run (completed in Phase 6). This document records the design and the ordering decision; policy build-out and evidence will be added when the policies are created.
 
 ## Why Conditional Access was deferred
 
@@ -8,7 +8,7 @@ Conditional Access policies evaluate during the **sign-in flow** — including t
 
 The ordering decision was therefore explicit: **build dynamic groups and app assignments before the provisioning test** (they enrich the test — the user's department app arrives during the run) **but hold Conditional Access until after one clean run.** Debugging two systems at once, with identical symptoms, is avoided by sequencing them. This is a deployment-ordering judgment worth stating plainly: CA is powerful and evaluates early, so it is introduced only once the baseline flow is known-good.
 
-With the clean provisioning run now complete (Phase 7), CA can be built against a known-working baseline.
+With the clean provisioning run now complete (Phase 6), CA can be built against a known-working baseline.
 
 ## Planned policies
 
