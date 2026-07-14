@@ -52,9 +52,9 @@ The `vSwitch-EXT-HOME` external switch bridges the lab VMs onto the physical hom
 
 A secondary complication: even after a static IPv4 DNS entry for `10.0.0.5` was added, resolution still failed because **IPv6 DNS took precedence** — `nslookup` was still querying a Rogers IPv6 server. IPv6 had to be overridden as well.
 
-### Why this stayed dormant until Phase 7
+### Why this stayed dormant until Phase 6
 
-Every prior phase worked because DC01, SYNC01, and the original WIN11 client were configured with **static IPs and static DNS pointing at 10.0.0.5**. Nothing in Phases 1–6 depended on *DHCP-delivered* DNS to reach the domain controller. **Autopilot is the first workflow that provisions a device which boots on DHCP** — so it is the first thing that ever exercised, and therefore exposed, the unmanaged DHCP layer. A misconfiguration can hide indefinitely until a new dependency finally relies on the thing it broke.
+Every prior phase worked because DC01, SYNC01, and the original WIN11 client were configured with **static IPs and static DNS pointing at 10.0.0.5**. Nothing in Phases 1–5 depended on *DHCP-delivered* DNS to reach the domain controller. **Autopilot is the first workflow that provisions a device which boots on DHCP** — so it is the first thing that ever exercised, and therefore exposed, the unmanaged DHCP layer. A misconfiguration can hide indefinitely until a new dependency finally relies on the thing it broke.
 
 ---
 
@@ -91,4 +91,4 @@ The static-IP fix is a workaround, not a cure — and importantly, **it does not
 
 ---
 
-[← Back to Phase 7 README](./README.md) | [Full-flow timing log](./full-flow-timing-log.md) | [Project overview](../README.md)
+[← Back to Phase 6 README](./README.md) | [Full-flow timing log](./full-flow-timing-log.md) | [Project overview](../README.md)

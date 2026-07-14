@@ -35,4 +35,4 @@ To be captured after the internal/private vSwitch redesign, as the representativ
 
 ---
 
-[← Back to Phase 7 README](./README.md) | [Break/fix case study](./breakfix-case-study.md) | [Project overview](../README.md)
+[← Back to Phase 6 README](./README.md) | [Break/fix case study](./breakfix-case-study.md) | [Project overview](../README.md)

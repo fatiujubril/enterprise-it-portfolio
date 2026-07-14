@@ -1,4 +1,4 @@
-# Phase 7 — Full-Flow Test & Break/Fix
+# Phase 6 — Full-Flow Test & Break/Fix
 
 ## Objective
 
@@ -77,4 +77,4 @@ A device was provisioned end to end with zero touch: hardware hash to fully conf
 
 ---
 
-[← Back to Phase 6 — PIM](../06-pim-for-admin-roles/README.md) | [Project overview](../README.md)
+[← Back to Phase 5 — Dynamic Groups & Assignment](../05-dynamic-groups-and-assignment/README.md) | [Project overview](../README.md)
