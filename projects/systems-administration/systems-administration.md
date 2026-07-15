@@ -1,27 +1,30 @@
 # Systems Administration & IT Engineering Projects
 
-Enterprise systems engineering projects built to demonstrate how infrastructure and endpoint decisions directly support secure, identity-driven operations.
+Enterprise systems engineering built to demonstrate how infrastructure and endpoint decisions directly support secure, identity-driven operations.
 
-These projects emphasize the operational side of enterprise IT — device lifecycle, hybrid identity infrastructure, and automated provisioning — with security governance built in from the start rather than bolted on afterward.
+Identity runs on infrastructure. These projects emphasize the operational layer beneath access control — device lifecycle, hybrid identity infrastructure, and automated provisioning — with security governance designed in from the start rather than bolted on afterward.
 
 ---
 
 ## Project 01 — Hybrid Autopilot & Identity-Driven Device Provisioning
-**Status: In Progress**
+**Status: Complete**
 
-Zero-touch Windows device provisioning built end-to-end on hybrid identity infrastructure. A new device ships sealed to an employee, and on first sign-in it is domain joined, Entra ID registered, enrolled in Intune, and provisioned with department-specific apps, policies, and access — with no IT technician touching the machine.
+Zero-touch Windows device provisioning built end to end on hybrid identity infrastructure. A new device ships sealed to an employee, and on first sign-in it is domain joined, Entra ID registered, enrolled in Intune, and provisioned with department-specific apps, policies, and access — with no IT technician touching the machine.
 
-The build covers the full hybrid identity chain:
+Built across six phases:
 
-- **On-prem foundation** — AD DS domain controller, OU design, department-attributed user accounts
-- **Identity synchronization** — Entra Connect deployment, OU-scoped sync, Password Hash Sync
-- **Hybrid Azure AD Join** — dual join state, sync timing dependencies, DC line-of-sight requirements
-- **Windows Autopilot (hybrid profile)** — hardware hash registration, Intune Connector for Active Directory, offline domain join
-- **Identity-driven provisioning** — dynamic groups by department attribute driving app assignment, configuration profiles, and compliance policies
-- **Access governance** — Conditional Access scoped by group and device compliance, PIM for administrative roles
-- **Break/fix engineering** — deliberate failure injection with documented diagnosis and resolution
+- **On-prem foundation** — AD DS domain controller, tiered OU design, department-attributed user accounts
+- **Identity synchronization** — Entra Connect deployment, OU-scoped sync, Password Hash Sync, least-privilege accounts throughout
+- **Hybrid Azure AD Join** — dual join state, SCP configuration, and server-registration hardening
+- **Windows Autopilot (hybrid profile)** — hardware hash registration, the MSA-based Intune Connector for Active Directory, offline domain join, deployment profile and Enrollment Status Page
+- **Identity-driven provisioning** — department dynamic groups driving app assignment, with an attribute-less account as a deliberate negative test
+- **Full-flow test & break/fix** — a device provisioned end to end from bare OOBE, validated across every layer
 
-**Demonstrates:** AD DS · Entra Connect · Hybrid Azure AD Join · Windows Autopilot · Microsoft Intune · Dynamic Groups · Conditional Access · PIM · PowerShell · Troubleshooting Methodology
+**Validated end to end:** hardware hash → Autopilot profile → offline domain join → Entra registration → Intune enrollment → department app delivered to a Standard user, in under six minutes of provisioning time.
+
+**Four break/fixes diagnosed to root cause**, including a stale AD attribute silently re-seeding deleted device records through the sync engine, and a dormant DHCP misconfiguration introduced in Phase 1 that only surfaced five phases later — because Autopilot is the first workflow that provisions a device booting on DHCP.
+
+**Demonstrates:** AD DS · Entra Connect · Hybrid Azure AD Join · Windows Autopilot · Microsoft Intune · Dynamic Groups · Conditional Access design · PowerShell · Troubleshooting Methodology
 
 📂 [View Project](./project-01-hybrid-autopilot-identity-provisioning/README.md)
 
@@ -29,4 +32,4 @@ The build covers the full hybrid identity chain:
 
 ## Planned Projects
 
-Future work in this section will continue the identity lifecycle and secure operations theme, including joiner/mover/leaver automation, administrative tiering, and endpoint baseline hardening.
+Future work in this section continues the identity lifecycle and secure operations theme, including joiner/mover/leaver automation, administrative tiering, and endpoint baseline hardening.

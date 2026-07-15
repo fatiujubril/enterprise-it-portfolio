@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fatiu Jubril — Identity &amp; Cloud Security Engineering</title>
+<meta name="description" content="Identity and cloud security engineering portfolio — Microsoft Entra ID, Conditional Access, PIM, Sentinel, and the protocols underneath. Built end to end, documented down to the failures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FCFCFB; --surface:#FFFFFF; --ink:#16191C; --muted:#5C6470;
+  --faint:#8A9099; --hairline:#E6E5E1; --hairline-2:#D9D8D3;
+  --seal:#0B5D51; --seal-bg:#E8F1EE; --pending:#8A5A2B; --pending-bg:#F6EEE4;
+  --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --rail:28px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#121417; --surface:#181B1F; --ink:#EDEDEA; --muted:#9BA1A9;
+    --faint:#6E757E; --hairline:#2A2E34; --hairline-2:#3A3F46;
+    --seal:#5DCAA5; --seal-bg:#12302A; --pending:#D9A566; --pending-bg:#2E2317;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px 96px;position:relative}
+a{color:inherit}
+
+.rail{position:absolute;left:24px;top:0;bottom:96px;width:1px;background:var(--hairline);display:none}
+@media(min-width:900px){
+  .rail{display:block;left:-32px}
+  .wrap{padding-left:24px}
+}
+.node{position:absolute;left:-36px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--paper);border:1.5px solid var(--seal);display:none}
+@media(min-width:900px){.node{display:block}}
+section{position:relative}
+
+header{padding:88px 0 0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--seal);margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:"";height:1px;flex:1;background:var(--hairline);max-width:120px}
+h1{font-size:clamp(30px,4.6vw,44px);font-weight:600;letter-spacing:-.028em;line-height:1.14;margin-bottom:20px;max-width:19ch}
+.lede{font-size:18px;color:var(--muted);max-width:60ch;line-height:1.6}
+.lede strong{color:var(--ink);font-weight:500}
+
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}
+.chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;padding:5px 10px;border:1px solid var(--hairline-2);border-radius:3px;color:var(--muted)}
+.chip.on{border-color:var(--seal);color:var(--seal);background:var(--seal-bg)}
+
+.links{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;font-size:14.5px}
+.links a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--hairline-2);padding-bottom:2px;transition:color .15s,border-color .15s}
+.links a:hover,.links a:focus-visible{color:var(--seal);border-color:var(--seal)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin-top:56px}
+.stat{background:var(--paper);padding:18px 20px}
+.stat b{display:block;font-size:26px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.stat span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--faint);text-transform:uppercase}
+
+h2{font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.sec{margin-top:80px}
+.sec-note{font-size:15px;color:var(--muted);max-width:62ch;margin-bottom:34px}
+
+.card{display:block;text-decoration:none;border-top:1px solid var(--hairline);padding:26px 0;transition:border-color .18s}
+.card:last-of-type{border-bottom:1px solid var(--hairline)}
+.card:hover,.card:focus-visible{border-color:var(--seal)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:7px}
+.card h3{font-size:17.5px;font-weight:500;letter-spacing:-.012em;line-height:1.35;transition:color .18s}
+.card:hover h3,.card:focus-visible h3{color:var(--seal)}
+.card p{font-size:14.5px;color:var(--muted);line-height:1.6;max-width:66ch}
+.card .res{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:9px;line-height:1.7}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.tag{font-family:var(--mono);font-size:11px;color:var(--faint);background:var(--surface);border:1px solid var(--hairline);padding:3px 7px;border-radius:2px}
+
+.status{flex-shrink:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap;margin-top:3px}
+.s-done{background:var(--seal-bg);color:var(--seal)}
+.s-wip{background:var(--pending-bg);color:var(--pending)}
+.s-next{background:transparent;color:var(--faint);border:1px solid var(--hairline-2)}
+
+.certs{font-size:14.5px;color:var(--muted);line-height:2}
+.certs b{color:var(--ink);font-weight:500}
+.foot{margin-top:80px;padding-top:30px;border-top:1px solid var(--hairline);font-size:14px;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--seal)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="rail" aria-hidden="true"></div>
+
+<header>
+  <div class="eyebrow">Identity &amp; access engineering</div>
+  <h1>I build the systems that decide who gets in — and prove why.</h1>
+  <p class="lede">Identity and cloud security engineer in Toronto. I work on <strong>Microsoft Entra ID, Conditional Access, PIM, and Sentinel</strong> — and the protocols underneath them. Every project here is built end to end in a controlled lab and documented down to the failures, because the failures are where the understanding is.</p>
+
+  <div class="meta">
+    <span class="chip on">SC-300 Identity</span>
+    <span class="chip on">SC-200 Security Ops</span>
+    <span class="chip on">MS-102</span>
+    <span class="chip on">Security+</span>
+    <span class="chip">CISSP in progress</span>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/fatiujubril/enterprise-it-portfolio">GitHub</a>
+    <a href="https://www.linkedin.com/in/fatiu-jubril/">LinkedIn</a>
+    <a href="mailto:ademolajubril95@gmail.com">ademolajubril95@gmail.com</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>4</b><span>Projects complete</span></div>
+    <div class="stat"><b>8</b><span>Sentinel detections</span></div>
+    <div class="stat"><b>50→67%</b><span>Secure score lifted</span></div>
+    <div class="stat"><b>0-touch</b><span>Device provisioning</span></div>
+  </div>
+</header>
+
+<section class="sec">
+  <span class="node" aria-hidden="true"></span>
+  <h2>Identity &amp; cloud security</h2>
+  <p class="sec-note">Each project takes a real failure scenario — how identity controls break, how the break is detected in telemetry, and how it is remediated and governed so it doesn't recur.</p>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio/blob/main/projects/cybersecurity/project-03-privileged-identity-cloud-security-program/README.md">
+    <div class="card-top">
+      <h3>Privileged Identity &amp; Cloud Security Program</h3>
+      <span class="status s-done">Complete</span>
+    </div>
+    <p>A full security program built from scratch for a fictional 200-person FinTech under PCI-DSS and PIPEDA — Zero Trust identity governance, cloud posture management, detection engineering, and GRC across four phases.</p>
+    <div class="res">Secure Score 50% → 67% · CIS 66/81 · MCSB 61/63 · 8 detection rules · 12 risks documented</div>
+    <div class="stack"><span class="tag">Entra PIM</span><span class="tag">Zero Trust</span><span class="tag">Defender for Cloud</span><span class="tag">Sentinel</span><span class="tag">KQL</span><span class="tag">NIST CSF</span></div>
+  </a>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio/blob/main/projects/cybersecurity/project-02-ca-misconfiguration-identity-attack/README.md">
+    <div class="card-top">
+      <h3>Conditional Access Misconfiguration &amp; Identity Attack Simulation</h3>
+      <span class="status s-done">Complete</span>
+    </div>
+    <p>How one reasonable administrative decision, made under business pressure, silently disables MFA for a high-value executive identity — no attacker required. Detected through sign-in telemetry, contained, and governed against recurrence.</p>
+    <div class="stack"><span class="tag">Conditional Access</span><span class="tag">MFA</span><span class="tag">Sign-in logs</span><span class="tag">KQL</span><span class="tag">MITRE ATT&amp;CK</span></div>
+  </a>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio/blob/main/projects/cybersecurity/project-01-identity-compromise-m365-phishing/README.md">
+    <div class="card-top">
+      <h3>Identity Compromise via Phishing — Detection, Containment, Hardening</h3>
+      <span class="status s-done">Complete</span>
+    </div>
+    <p>Credential phishing into unauthorized cloud authentication, mailbox-rule persistence, and internal propagation — with no malware and no endpoint exploitation. The full IR lifecycle through Entra sign-in logs and Exchange Online telemetry.</p>
+    <div class="stack"><span class="tag">Incident response</span><span class="tag">Entra ID</span><span class="tag">Exchange Online</span><span class="tag">KQL</span><span class="tag">Evidence handling</span></div>
+  </a>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio/blob/main/projects/cybersecurity/project-04-kql-detection-workbook/README.md">
+    <div class="card-top">
+      <h3>KQL Detection Workbook</h3>
+      <span class="status s-wip">In progress</span>
+    </div>
+    <p>Custom Sentinel detections across identity, cloud, and endpoint scenarios mapped to MITRE ATT&amp;CK — with the false-positive tuning log, because the tuning is the craft.</p>
+    <div class="stack"><span class="tag">Sentinel</span><span class="tag">KQL</span><span class="tag">Detection engineering</span><span class="tag">Threat hunting</span></div>
+  </a>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio">
+    <div class="card-top">
+      <h3>SSO &amp; Federation — OIDC, SAML, and SCIM across two IdPs</h3>
+      <span class="status s-next">Next</span>
+    </div>
+    <p>The same application federated to Okta over OIDC with PKCE and to Entra ID over SAML, with SCIM provisioning — documented at the wire, from the authorization request to the decoded assertion. Building it twice is how you learn the protocol instead of the console.</p>
+    <div class="stack"><span class="tag">Okta</span><span class="tag">OIDC</span><span class="tag">SAML</span><span class="tag">OAuth 2.0</span><span class="tag">PKCE</span><span class="tag">SCIM</span></div>
+  </a>
+</section>
+
+<section class="sec">
+  <span class="node" aria-hidden="true"></span>
+  <h2>Foundations</h2>
+  <p class="sec-note">Identity runs on infrastructure. I came up through systems and endpoint engineering, and it still shapes how I design access — this project sits on the seam between the two.</p>
+
+  <a class="card" href="https://github.com/fatiujubril/enterprise-it-portfolio/blob/main/projects/systems-administration/project-01-hybrid-autopilot-identity-provisioning/README.md">
+    <div class="card-top">
+      <h3>Hybrid Autopilot &amp; Identity-Driven Device Provisioning</h3>
+      <span class="status s-done">Complete</span>
+    </div>
+    <p>A sealed device ships to an employee. On first sign-in it domain joins, registers to Entra, enrolls in Intune, and provisions the apps and access their department entitles them to — no technician touches it. Built across six phases from the domain controller up, with four break/fixes diagnosed to root cause, including one dormant misconfiguration that only surfaced five phases after it was introduced.</p>
+    <div class="res">AD DS → Entra Connect → hybrid join → Autopilot → dynamic groups → validated end to end</div>
+    <div class="stack"><span class="tag">AD DS</span><span class="tag">Entra Connect</span><span class="tag">Autopilot</span><span class="tag">Intune</span><span class="tag">Dynamic groups</span><span class="tag">PowerShell</span></div>
+  </a>
+</section>
+
+<section class="sec">
+  <span class="node" aria-hidden="true"></span>
+  <h2>Certifications</h2>
+  <p class="certs">
+    <b>Microsoft:</b> Security Operations Analyst (SC-200) · Identity and Access Administrator (SC-300) · 365 Administrator (MS-102) · Azure Fundamentals (AZ-900)<br>
+    <b>CompTIA:</b> Security+ · Network+ · A+ · CSIS · CIOS<br>
+    <b>Other:</b> ITIL 4 Foundation · ServiceNow Administrator<br>
+    <b>In progress:</b> CISSP
+  </p>
+</section>
+
+<section class="sec">
+  <span class="node" aria-hidden="true"></span>
+  <h2>How this portfolio works</h2>
+  <p class="sec-note" style="margin-bottom:0">Every project is original lab work — no client or confidential data. Each one is evidence-backed with screenshots organized by phase, and documented the way I'd document it at work: the design decisions, the reasoning, and the things that broke. I'm happy to walk through any of it and explain how it maps to a production environment.</p>
+</section>
+
+<div class="foot">
+  <span>Fatiu Jubril — Toronto, ON</span>
+  <span><a href="mailto:ademolajubril95@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/fatiu-jubril/">LinkedIn</a> · <a href="https://github.com/fatiujubril/enterprise-it-portfolio">GitHub</a></span>
+</div>
+
+</div>
+</body>
+</html>
